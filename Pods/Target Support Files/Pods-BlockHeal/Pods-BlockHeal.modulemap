@@ -1,0 +1,6 @@
+framework module Pods_BlockHeal {
+  umbrella header "Pods-BlockHeal-umbrella.h"
+
+  export *
+  module * { export * }
+}
