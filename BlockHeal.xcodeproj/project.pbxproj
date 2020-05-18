@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		F541E55E2473249E00A0D6FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F541E55C2473249E00A0D6FE /* Main.storyboard */; };
 		F541E560247324A000A0D6FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F541E55F247324A000A0D6FE /* Assets.xcassets */; };
 		F541E563247324A000A0D6FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F541E561247324A000A0D6FE /* LaunchScreen.storyboard */; };
+		F5984AFB2473382600F25B8B /* SawtoothSigning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5984AFA2473382600F25B8B /* SawtoothSigning.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		F541E55F247324A000A0D6FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F541E562247324A000A0D6FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F541E564247324A000A0D6FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5984AFA2473382600F25B8B /* SawtoothSigning.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SawtoothSigning.framework; path = Carthage/Build/iOS/SawtoothSigning.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5984AFB2473382600F25B8B /* SawtoothSigning.framework in Frameworks */,
 				4724250BEAE1CA432C825597 /* Pods_BlockHeal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -45,6 +48,7 @@
 		16AC1358D5AAF396E4ADF878 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F5984AFA2473382600F25B8B /* SawtoothSigning.framework */,
 				88BCA6499A37A3EAF110232A /* Pods_BlockHeal.framework */,
 			);
 			name = Frameworks;
@@ -56,7 +60,6 @@
 				9ED1B5AB936AB438E0CECD7A /* Pods-BlockHeal.debug.xcconfig */,
 				76D459465758ABA3AFCFE936 /* Pods-BlockHeal.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -356,7 +359,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XYY68H4963;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BlockHeal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -375,7 +383,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XYY68H4963;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BlockHeal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

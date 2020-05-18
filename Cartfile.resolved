@@ -1,0 +1,2 @@
+github "Boilertalk/secp256k1.swift" "0.1.4"
+github "hyperledger/sawtooth-sdk-swift" "59332f8d188c0440c97ead14f4440ee0d3e2ad35"
