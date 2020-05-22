@@ -14,7 +14,6 @@
 		F541E55E2473249E00A0D6FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F541E55C2473249E00A0D6FE /* Main.storyboard */; };
 		F541E560247324A000A0D6FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F541E55F247324A000A0D6FE /* Assets.xcassets */; };
 		F541E563247324A000A0D6FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F541E561247324A000A0D6FE /* LaunchScreen.storyboard */; };
-		F576565E24779C63006321FC /* prescript.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F576565D24779C63006321FC /* prescript.pb.swift */; };
 		F576566024779E4F006321FC /* UserAction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F576565F24779E4F006321FC /* UserAction.storyboard */; };
 		F5984AFB2473382600F25B8B /* SawtoothSigning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5984AFA2473382600F25B8B /* SawtoothSigning.framework */; };
 		F5E20BD02478178A007FA192 /* prescript.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E20BCC2478178A007FA192 /* prescript.swift */; };
@@ -64,7 +63,6 @@
 		F541E55F247324A000A0D6FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F541E562247324A000A0D6FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F541E564247324A000A0D6FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F576565D24779C63006321FC /* prescript.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = prescript.pb.swift; sourceTree = "<group>"; };
 		F576565F24779E4F006321FC /* UserAction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserAction.storyboard; sourceTree = "<group>"; };
 		F5984AFA2473382600F25B8B /* SawtoothSigning.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SawtoothSigning.framework; path = Carthage/Build/iOS/SawtoothSigning.framework; sourceTree = "<group>"; };
 		F5E20BCC2478178A007FA192 /* prescript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = prescript.swift; sourceTree = "<group>"; };
@@ -259,7 +257,6 @@
 				F5E20BCF2478178A007FA192 /* drugstore.swift */,
 				F5E20BCD2478178A007FA192 /* patient_account.swift */,
 				F5E20BCC2478178A007FA192 /* prescript.swift */,
-				F576565D24779C63006321FC /* prescript.pb.swift */,
 			);
 			path = Protos;
 			sourceTree = "<group>";
@@ -390,7 +387,6 @@
 				F5E30A792473A0A900C347D4 /* UIViewController.swift in Sources */,
 				F541E55B2473249E00A0D6FE /* ViewController.swift in Sources */,
 				F541E5572473249E00A0D6FE /* AppDelegate.swift in Sources */,
-				F576565E24779C63006321FC /* prescript.pb.swift in Sources */,
 				F5E30A742473A0A900C347D4 /* UITableViewCell.swift in Sources */,
 				F5E30A6E2473A0A900C347D4 /* UIButton.swift in Sources */,
 				F5E20BD12478178A007FA192 /* patient_account.swift in Sources */,
