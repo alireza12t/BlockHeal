@@ -1,0 +1,26 @@
+syntax = "proto3";;
+import "./prescript.proto";
+
+package pat_account;
+
+message Patient_Account {
+
+    message Contacts {
+        required string FullName = 2;
+        required string Eamil = 16; /*reserve 1 to 15 for higher priority fields*/
+        required string PhoneNumber = 17;
+    }
+
+    message medical_records {
+        string LinkToLocalSystem = 1;
+        string OwnerPublicKey = 2;
+    }
+
+    string PublicKey = 1;
+    repeated Prescript received_prescript = 16;
+    repeated medical_records records = 16;
+}
+
+message PatientAcount_Container {
+    repeated Patient_Account entries = 1;
+}

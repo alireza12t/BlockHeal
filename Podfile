@@ -11,7 +11,8 @@ target 'BlockHeal' do
  	pod 'Alamofire', '~> 5.0.0'
 	pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :tag => '4.2.0'
   	pod 'IQKeyboardManagerSwift'
-
-
+	pod 'SwiftyBeaver'
+	pod 'SwiftProtobuf', '~> 1.0'
+	pod 'SwiftyJSON'
 end
 

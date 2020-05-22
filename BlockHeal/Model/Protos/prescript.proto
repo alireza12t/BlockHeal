@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package Prescript;
+
+message Prescription_Action {
+    string action = 100;
+
+    oneof options {
+    RecievePrescript recieve_Prescription = 200;
+    SendPrescript send_Prescription = 201; 
+    }
+}
+
+
+
+message RecievePrescript {
+    string LinkToLocalSystem = 1;
+}
+
+message SendPrescript {
+    string linkToLocalSystem = 1;
+}
+
+
+
+
