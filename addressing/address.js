@@ -1,18 +1,29 @@
-const crypto = require ('crypto')
+const crypto = require("crypto");
 
-const hash = (x) => crypto.createHash('sha512').update(x).digest('hex').toLowerCase().substring(0,64)
+const hash = (x) =>
+  crypto
+    .createHash("sha512")
+    .update(x)
+    .digest("hex")
+    .toLowerCase()
+    .substring(0, 64);
 
+const NAMESPACE = "59b423";
 
+const createPatAddress = (accountId) => {
+  return NAMESPACE + "ab" + hash(accountId).substr(0, 60) + "ab";
+};
 
-const NAMESPACE = '59b423'
+const createDocAddress = (accountId) => {
+  return NAMESPACE + "ac" + hash(accountId).substr(0, 60) + "ac";
+};
 
-
-const createAccountAddress = (accountId) => {
-    return NAMESPACE + 'ac' + hash(accountId).substr(0,60) + 'ac'
-}
-
+const createDRUGAddress = (accountId) => {
+  return NAMESPACE + "ad" + hash(accountId).substr(0, 60) + "ad";
+};
 
 module.exports = {
-    createAccountAddress,
-} 
-
+  createPatAddress,
+  createDocAddress,
+  createDRUGAddress,
+};

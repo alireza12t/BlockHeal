@@ -1,6 +1,8 @@
 const pb = require('protobufjs')
 const {
-    createAccountAddress,
+  createPatAddress, 
+  createDocAddress, 
+  createDRUGAddress
 } = require('../addressing/address')
 const { logger } = require('./logger')
 
@@ -9,7 +11,12 @@ class BC98State {
   constructor (context) {
     this.context = context
     this.addressCache = new Map([])
+    this.users = ["PATEINT", "DOCTOR", "DRUGSTR"];
+
   }
+
+  
+
 
   encodeFunction (payload, pathFile, pathMessage) {
     try {
@@ -36,8 +43,14 @@ class BC98State {
   loadMessage (key, pathFile, pathMessage) {
     let address
     switch (pathMessage) {
-      case 'Account':
-        address = createAccountAddress(key)
+      case 'Patient':
+        address = createPatAddress(key)
+        break
+      case 'Doctor':
+        address = createDocAddress(key)
+        break
+      case 'DrugStore':
+        address = createDRUGAddress(key)
         break
       default:
         logger.warn('Bad Message!')
@@ -99,9 +112,17 @@ class BC98State {
     let address
     let pathFile
     switch (pathMessage) {
-      case 'Account':
-        address = createAccountAddress(key)
-        pathFile = '../protos/account.proto'
+      case 'Patient':
+        address = createPatAddress(key)
+        pathFile = '../protos/patient.proto'
+        break
+      case 'Doctor':
+        address = createDocAddress(key)
+        pathFile = '../protos/doctor.proto'
+        break
+      case 'drugStore':
+        address = createDRUGAddress(key)
+        pathFile = '../protos/drugstore.proto'
         break
       default:
         logger.warn('Bad Message!')
@@ -120,27 +141,77 @@ class BC98State {
     // //////////////////////////////////////////////////////////////////////
     // ########## Set Accounts #######################
     // /////////////////////////////////////////////////////////////////////
+  
+  setAccount(label, pubKey) {
 
-  setAccount (label, pubKey) {
-    try {
-    const payloadAccount = {
-      publickey: pubKey,
-      label: [label],
-      balance: '0'
+    //define labels and save publicKey for each users
+    if (label===this.users[0]) {
+      try {
+        const payloadPat = {
+          publickey: pubKey,
+          label: [label],
+          records = [], 
+          recevedPrescripts = null, 
+        }
+        const dataAccount = this.encodeFunction([payloadPat], '../protos/patient.proto', 'Patient_Account')
+        const addressAccount = createPatAddress(pubKey)
+        this.addressCache.set(addressAccount, dataAccount[0])
+    
+        let entries = {
+          [addressAccount]: dataAccount[0]
+        }
+        return this.context.setState(entries)
+        } catch (err) {
+          const message = err.message ? err.message : err
+          logger.error(`setState in set patient has some problems: ${message}`)
+          throw new Error('setState in set patient has some problems:' + ' ' + err)
+        }
     }
-    const dataAccount = this.encodeFunction([payloadAccount], '../protos/account.proto', 'Account')
-    const addressAccount = createAccountAddress(pubKey)
-    this.addressCache.set(addressAccount, dataAccount[0])
 
-    let entries = {
-      [addressAccount]: dataAccount[0]
+    else if (label===this.users[1]) {
+      try {
+        const payloadDoc = {
+          publickey: pubKey,
+          label: [label],
+          sent_Prescripts = [],  
+        }
+        const dataAccount = this.encodeFunction([payloadDoc], '../protos/doctor.proto', 'Doctor_Account')
+        const addressAccount = createDocAddress(pubKey)
+        this.addressCache.set(addressAccount, dataAccount[0])
+    
+        let entries = {
+          [addressAccount]: dataAccount[0]
+        }
+        return this.context.setState(entries)
+        } catch (err) {
+          const message = err.message ? err.message : err
+          logger.error(`setState in set doctor has some problems: ${message}`)
+          throw new Error('setState in set doctor has some problems:' + ' ' + err)
+        }
     }
-    return this.context.setState(entries)
-    } catch (err) {
-      const message = err.message ? err.message : err
-      logger.error(`setState in setAccount has some problems: ${message}`)
-      throw new Error('setState in setAccount has some problems:' + ' ' + err)
+
+    else if (label===this.users[2]) {
+      try {
+        const payloadStr = {
+          publickey: pubKey,
+          label: [label],
+          received_Prescripts = [],  
+        }
+        const dataAccount = this.encodeFunction([payloadStr], '../protos/drugstore.proto', 'DrugStore_Account')
+        const addressAccount = createDRUGAddress(pubKey)
+        this.addressCache.set(addressAccount, dataAccount[0])
+    
+        let entries = {
+          [addressAccount]: dataAccount[0]
+        }
+        return this.context.setState(entries)
+        } catch (err) {
+          const message = err.message ? err.message : err
+          logger.error(`setState in set drugstore has some problems: ${message}`)
+          throw new Error('setState in set drugstore has some problems:' + ' ' + err)
+        }
     }
+
   }
 
 
@@ -148,7 +219,7 @@ class BC98State {
     // ########## Set Charge #######################
     // /////////////////////////////////////////////////////////////////////
 
-  setCharge (amount, pubKey) {
+  setCharge(amount, pubKey) {
     return this.getMessage(pubKey, 'Account')
     .then((accountValue) => {
       if (!accountValue || accountValue.publickey !== pubKey) {
@@ -183,8 +254,35 @@ class BC98State {
     })
   }
 
-}
+  prescriptTrx(link, recieverPubKey, senderPubKey) {
+    // TODO: wait for handler
+  }
+
+  toPatient(link, docPublicKey, patPublickey) {
+    return this.getMessage(patPublickey, 'Patient')
+    .then((accountValue) => {
+
+      if (!accountValue || accountValue.publickey !== pubKey) {
+        logger.error('No Account exists in patients!')
+        throw new Error('The Account is not valid!')
+      }
+
+      const payloadPatient = {
+
+        publickey: accountValue.publickey,
+        label: accountValue.label,
+        prescript: link     
+      }
+
+
+    })
+
+  }
   
+}
+
+
+
 
 module.exports = {
   BC98State
