@@ -3,17 +3,17 @@ import "prescript.proto";
 
 package bc;
 
-message Patient_Account {
-    string PublicKey = 1;
+message patientAccount {
+    string publicKey = 1;
 
     repeated string label = 2;
 
-    message medical_records {
+    message medicalRecords {
         string LinkToLocalSystem = 1;
         string OwnerPublicKey = 2;
     }
 
-    repeated Prescript received_prescript = 16; /*reserve 1 to 15 for higher priority fields*/
+    repeated Prescript receivedPrescripts = 16; /*reserve 1 to 15 for higher priority fields*/
 }
 
 message PatientAcount_Container {
