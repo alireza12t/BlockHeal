@@ -14,5 +14,6 @@ target 'BlockHeal' do
 	pod 'SwiftyBeaver'
 	pod 'SwiftProtobuf', '~> 1.0'
 	pod 'SwiftyJSON'
+	pod 'SwiftCBOR'
 end
 

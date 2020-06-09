@@ -8,6 +8,7 @@ PODS:
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
   - Spring (1.0.6)
+  - SwiftCBOR (0.4.3)
   - SwiftProtobuf (1.9.0)
   - SwiftValidator (4.0.0)
   - SwiftyBeaver (1.9.1)
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - RxCocoa
   - RxSwift
   - Spring (from `https://github.com/MengTo/Spring.git`)
+  - SwiftCBOR
   - SwiftProtobuf (~> 1.0)
   - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, tag `4.2.0`)
   - SwiftyBeaver
@@ -31,6 +33,7 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SwiftCBOR
     - SwiftProtobuf
     - SwiftyBeaver
     - SwiftyJSON
@@ -57,11 +60,12 @@ SPEC CHECKSUMS:
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   Spring: 3d113f14575ef79aec9c5f906dfa4f5001c03254
+  SwiftCBOR: c7d740966575e0fd5d971466de2b6776db3f10c3
   SwiftProtobuf: ecbec1be9036d15655f6b3443a1c4ea693c97932
   SwiftValidator: 249b6b3ae3b294266c5b9de134d94f18f2d5aa47
   SwiftyBeaver: a1f5691458561414bcfab51874b2b7445451602b
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 8f28183a4ee576f30aea8a99695c3b70c4bdefde
+PODFILE CHECKSUM: dfbe1e1e24e5f66df66333f372dc4dbf6f1ca14a
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3

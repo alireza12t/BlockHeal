@@ -29,26 +29,7 @@ struct Bc_Patient_Account {
   ///reserve 1 to 15 for higher priority fields
   var receivedPrescript: [Bc_Prescript] = []
 
-  var records: [Bc_Patient_Account.medical_records] = []
-
   var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  struct Contacts {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var fullName: String = String()
-
-    ///reserve 1 to 15 for higher priority fields
-    var eamil: String = String()
-
-    var phoneNumber: String = String()
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
 
   struct medical_records {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -88,7 +69,6 @@ extension Bc_Patient_Account: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "PublicKey"),
     16: .standard(proto: "received_prescript"),
-    17: .same(proto: "records"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -96,7 +76,6 @@ extension Bc_Patient_Account: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
       switch fieldNumber {
       case 1: try decoder.decodeSingularStringField(value: &self.publicKey)
       case 16: try decoder.decodeRepeatedMessageField(value: &self.receivedPrescript)
-      case 17: try decoder.decodeRepeatedMessageField(value: &self.records)
       default: break
       }
     }
@@ -109,57 +88,12 @@ extension Bc_Patient_Account: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     if !self.receivedPrescript.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.receivedPrescript, fieldNumber: 16)
     }
-    if !self.records.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.records, fieldNumber: 17)
-    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Bc_Patient_Account, rhs: Bc_Patient_Account) -> Bool {
     if lhs.publicKey != rhs.publicKey {return false}
     if lhs.receivedPrescript != rhs.receivedPrescript {return false}
-    if lhs.records != rhs.records {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Bc_Patient_Account.Contacts: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = Bc_Patient_Account.protoMessageName + ".Contacts"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    2: .same(proto: "FullName"),
-    16: .same(proto: "Eamil"),
-    17: .same(proto: "PhoneNumber"),
-  ]
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 2: try decoder.decodeSingularStringField(value: &self.fullName)
-      case 16: try decoder.decodeSingularStringField(value: &self.eamil)
-      case 17: try decoder.decodeSingularStringField(value: &self.phoneNumber)
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.fullName.isEmpty {
-      try visitor.visitSingularStringField(value: self.fullName, fieldNumber: 2)
-    }
-    if !self.eamil.isEmpty {
-      try visitor.visitSingularStringField(value: self.eamil, fieldNumber: 16)
-    }
-    if !self.phoneNumber.isEmpty {
-      try visitor.visitSingularStringField(value: self.phoneNumber, fieldNumber: 17)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: Bc_Patient_Account.Contacts, rhs: Bc_Patient_Account.Contacts) -> Bool {
-    if lhs.fullName != rhs.fullName {return false}
-    if lhs.eamil != rhs.eamil {return false}
-    if lhs.phoneNumber != rhs.phoneNumber {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

@@ -1,1 +1,2 @@
 github "hyperledger/sawtooth-sdk-swift" "master"
+github "soffes/CommonCrypto"

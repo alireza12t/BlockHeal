@@ -30,23 +30,6 @@ struct Bc_Doctor_Account {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct Contacts {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var fullname: String = String()
-
-    ///reserve 1 to 15 for higher priority fields
-    var eamil: String = String()
-
-    var phonenumber: String = String()
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
   init() {}
 }
 
@@ -69,8 +52,8 @@ fileprivate let _protobuf_package = "bc"
 extension Bc_Doctor_Account: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Doctor_Account"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Publickey"),
-    16: .standard(proto: "sent_prescripts"),
+    1: .same(proto: "publickey"),
+    16: .standard(proto: "sent_Prescripts"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -96,47 +79,6 @@ extension Bc_Doctor_Account: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
   static func ==(lhs: Bc_Doctor_Account, rhs: Bc_Doctor_Account) -> Bool {
     if lhs.publickey != rhs.publickey {return false}
     if lhs.sentPrescripts != rhs.sentPrescripts {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Bc_Doctor_Account.Contacts: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = Bc_Doctor_Account.protoMessageName + ".Contacts"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    2: .same(proto: "Fullname"),
-    16: .same(proto: "Eamil"),
-    17: .same(proto: "Phonenumber"),
-  ]
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 2: try decoder.decodeSingularStringField(value: &self.fullname)
-      case 16: try decoder.decodeSingularStringField(value: &self.eamil)
-      case 17: try decoder.decodeSingularStringField(value: &self.phonenumber)
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.fullname.isEmpty {
-      try visitor.visitSingularStringField(value: self.fullname, fieldNumber: 2)
-    }
-    if !self.eamil.isEmpty {
-      try visitor.visitSingularStringField(value: self.eamil, fieldNumber: 16)
-    }
-    if !self.phonenumber.isEmpty {
-      try visitor.visitSingularStringField(value: self.phonenumber, fieldNumber: 17)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: Bc_Doctor_Account.Contacts, rhs: Bc_Doctor_Account.Contacts) -> Bool {
-    if lhs.fullname != rhs.fullname {return false}
-    if lhs.eamil != rhs.eamil {return false}
-    if lhs.phonenumber != rhs.phonenumber {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

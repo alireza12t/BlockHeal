@@ -50,18 +50,18 @@ struct Bc_Prescription_Action {
 
   var options: Bc_Prescription_Action.OneOf_Options? = nil
 
-  var recievePrescription: Bc_RecievePrescript {
+  var recievePrescription: Bc_recievePrescript {
     get {
       if case .recievePrescription(let v)? = options {return v}
-      return Bc_RecievePrescript()
+      return Bc_recievePrescript()
     }
     set {options = .recievePrescription(newValue)}
   }
 
-  var sendPrescription: Bc_SendPrescript {
+  var sendPrescription: Bc_sendPrescript {
     get {
       if case .sendPrescription(let v)? = options {return v}
-      return Bc_SendPrescript()
+      return Bc_sendPrescript()
     }
     set {options = .sendPrescription(newValue)}
   }
@@ -69,8 +69,8 @@ struct Bc_Prescription_Action {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_Options: Equatable {
-    case recievePrescription(Bc_RecievePrescript)
-    case sendPrescription(Bc_SendPrescript)
+    case recievePrescription(Bc_recievePrescript)
+    case sendPrescription(Bc_sendPrescript)
 
   #if !swift(>=4.1)
     static func ==(lhs: Bc_Prescription_Action.OneOf_Options, rhs: Bc_Prescription_Action.OneOf_Options) -> Bool {
@@ -86,28 +86,32 @@ struct Bc_Prescription_Action {
   init() {}
 }
 
-struct Bc_RecievePrescript {
+struct Bc_recievePrescript {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var linkToLocalSystem: String = String()
+  var prescript: String = String()
 
   var recieverPublicKey: String = String()
+
+  var senderPublicKey: String = String()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 }
 
-struct Bc_SendPrescript {
+struct Bc_sendPrescript {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var senderPublicKey: String = String()
 
-  var linkToLocalSystem: String = String()
+  var recieverPublicKey: String = String()
+
+  var prescriptHash: String = String()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -176,7 +180,7 @@ extension Bc_Prescription_Action: SwiftProtobuf.Message, SwiftProtobuf._MessageI
       case 2: try decoder.decodeSingularStringField(value: &self.senderPublicKey)
       case 100: try decoder.decodeSingularStringField(value: &self.action)
       case 200:
-        var v: Bc_RecievePrescript?
+        var v: Bc_recievePrescript?
         if let current = self.options {
           try decoder.handleConflictingOneOf()
           if case .recievePrescription(let m) = current {v = m}
@@ -184,7 +188,7 @@ extension Bc_Prescription_Action: SwiftProtobuf.Message, SwiftProtobuf._MessageI
         try decoder.decodeSingularMessageField(value: &v)
         if let v = v {self.options = .recievePrescription(v)}
       case 201:
-        var v: Bc_SendPrescript?
+        var v: Bc_sendPrescript?
         if let current = self.options {
           try decoder.handleConflictingOneOf()
           if case .sendPrescription(let m) = current {v = m}
@@ -226,71 +230,83 @@ extension Bc_Prescription_Action: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   }
 }
 
-extension Bc_RecievePrescript: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RecievePrescript"
+extension Bc_recievePrescript: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".recievePrescript"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "LinkToLocalSystem"),
+    1: .same(proto: "prescript"),
     2: .standard(proto: "reciever_publicKey"),
+    3: .standard(proto: "sender_publicKey"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &self.linkToLocalSystem)
+      case 1: try decoder.decodeSingularStringField(value: &self.prescript)
       case 2: try decoder.decodeSingularStringField(value: &self.recieverPublicKey)
+      case 3: try decoder.decodeSingularStringField(value: &self.senderPublicKey)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.linkToLocalSystem.isEmpty {
-      try visitor.visitSingularStringField(value: self.linkToLocalSystem, fieldNumber: 1)
+    if !self.prescript.isEmpty {
+      try visitor.visitSingularStringField(value: self.prescript, fieldNumber: 1)
     }
     if !self.recieverPublicKey.isEmpty {
       try visitor.visitSingularStringField(value: self.recieverPublicKey, fieldNumber: 2)
     }
+    if !self.senderPublicKey.isEmpty {
+      try visitor.visitSingularStringField(value: self.senderPublicKey, fieldNumber: 3)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Bc_RecievePrescript, rhs: Bc_RecievePrescript) -> Bool {
-    if lhs.linkToLocalSystem != rhs.linkToLocalSystem {return false}
+  static func ==(lhs: Bc_recievePrescript, rhs: Bc_recievePrescript) -> Bool {
+    if lhs.prescript != rhs.prescript {return false}
     if lhs.recieverPublicKey != rhs.recieverPublicKey {return false}
+    if lhs.senderPublicKey != rhs.senderPublicKey {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Bc_SendPrescript: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SendPrescript"
+extension Bc_sendPrescript: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".sendPrescript"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2: .standard(proto: "sender_publicKey"),
-    1: .same(proto: "linkToLocalSystem"),
+    3: .standard(proto: "reciever_publicKey"),
+    1: .same(proto: "prescriptHash"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &self.linkToLocalSystem)
+      case 1: try decoder.decodeSingularStringField(value: &self.prescriptHash)
       case 2: try decoder.decodeSingularStringField(value: &self.senderPublicKey)
+      case 3: try decoder.decodeSingularStringField(value: &self.recieverPublicKey)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.linkToLocalSystem.isEmpty {
-      try visitor.visitSingularStringField(value: self.linkToLocalSystem, fieldNumber: 1)
+    if !self.prescriptHash.isEmpty {
+      try visitor.visitSingularStringField(value: self.prescriptHash, fieldNumber: 1)
     }
     if !self.senderPublicKey.isEmpty {
       try visitor.visitSingularStringField(value: self.senderPublicKey, fieldNumber: 2)
     }
+    if !self.recieverPublicKey.isEmpty {
+      try visitor.visitSingularStringField(value: self.recieverPublicKey, fieldNumber: 3)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Bc_SendPrescript, rhs: Bc_SendPrescript) -> Bool {
+  static func ==(lhs: Bc_sendPrescript, rhs: Bc_sendPrescript) -> Bool {
     if lhs.senderPublicKey != rhs.senderPublicKey {return false}
-    if lhs.linkToLocalSystem != rhs.linkToLocalSystem {return false}
+    if lhs.recieverPublicKey != rhs.recieverPublicKey {return false}
+    if lhs.prescriptHash != rhs.prescriptHash {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
