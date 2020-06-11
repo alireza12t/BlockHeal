@@ -116,15 +116,51 @@ const bootsrapDatabase = () => {
             r
               .db(NAME)
               .tableList()
-              .contains("users")
+              .contains("patients")
               .run(conn)
               .then((tableExist) => {
-                if (tableExist) logger.info("The users table already exists");
+                if (tableExist)
+                  logger.info("The patients table already exists");
                 else {
                   return r
                     .db(NAME)
-                    .tableCreate("users", {
-                      primary_key: "publickey",
+                    .tableCreate("patients", {
+                      primary_key: "publicKey",
+                    })
+                    .run(conn);
+                }
+              }),
+
+            r
+              .db(NAME)
+              .tableList()
+              .contains("doctors")
+              .run(conn)
+              .then((tableExist) => {
+                if (tableExist) logger.info("The doctors table already exists");
+                else {
+                  return r
+                    .db(NAME)
+                    .tableCreate("doctors", {
+                      primary_key: "publicKey",
+                    })
+                    .run(conn);
+                }
+              }),
+
+            r
+              .db(NAME)
+              .tableList()
+              .contains("drugstore")
+              .run(conn)
+              .then((tableExist) => {
+                if (tableExist)
+                  logger.info("The drugstore table already exists");
+                else {
+                  return r
+                    .db(NAME)
+                    .tableCreate("drugstore", {
+                      primary_key: "publicKey",
                     })
                     .run(conn);
                 }
