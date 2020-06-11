@@ -151,7 +151,7 @@ const bootsrapDatabase = () => {
             r
               .db(NAME)
               .tableList()
-              .contains("drugstore")
+              .contains("drugstores")
               .run(conn)
               .then((tableExist) => {
                 if (tableExist)
@@ -159,7 +159,7 @@ const bootsrapDatabase = () => {
                 else {
                   return r
                     .db(NAME)
-                    .tableCreate("drugstore", {
+                    .tableCreate("drugstores", {
                       primary_key: "publicKey",
                     })
                     .run(conn);
