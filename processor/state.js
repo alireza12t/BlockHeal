@@ -283,7 +283,7 @@ class BC98State {
 
   // TODO this method is for assining sent prescript to doctor if this method works
   // apply this for addind hash for patient
-  fromDoctor(prescriptHash, prescriptIndex, docPublicKey, patPublickey) {
+  fromDoctor(prescriptHash, prescriptIndex, docPublicKey, patPublicKey) {
     return this.getMessage(docPublicKey, "Doctor")
       .then((accountValue) => {
         if (!accountValue || accountValue.publicKey !== docPublicKey) {
@@ -297,7 +297,7 @@ class BC98State {
           sentPrescripts: sentPrescripts.add({
             index: prescriptIndex,
             hash: prescriptHash,
-            patPublickey: patPublickey,
+            patPublicKey: patPublicKey,
             docPublicKey: docPublicKey,
           }),
         };

@@ -156,18 +156,18 @@ class Blockchain98Handler extends TransactionHandler {
           prescriptHash,
           prescriptIndex,
           docPublicKey,
-          patPublickey
+          patPublicKey
         ) => {
           //send
           if (docPublicKey !== userPublicKey && prescriptHash.length != 64) {
             throw new Error("Doctor account is not valid");
           }
-          logger.info(`Trx recieved from: ${docPublicKey} to: ${patPublickey}
+          logger.info(`Trx recieved from: ${docPublicKey} to: ${patPublicKey}
                       the prescript index is: ${prescriptIndex}`);
           return bC98State.fromDoctor(
             prescriptHash,
             prescriptIndex,
-            patPublickey,
+            patPublicKey,
             docPublicKey
           );
         };
@@ -207,13 +207,13 @@ class Blockchain98Handler extends TransactionHandler {
             let hash = update.sendprescript.hash;
             let index = update.sendprescript.index;
             let docPublicKey = userPublicKey;
-            let patPublickey = update.sendprescript.patPublickey;
+            let patPublicKey = update.sendprescript.patPublicey;
 
             actionPromise = prescriptTrx(
               hash,
               index,
               docPublicKey,
-              patPublickey
+              patPublicKey
             );
             break;
 

@@ -19,7 +19,7 @@ message CreateAccountAction {
 message SendPrescriptAction {
     string index = 1;         
     string hash = 2;
-    string patPublickey = 3;
+    string patPublicKey = 3;
     string docPublicKey = 4;
 }
 

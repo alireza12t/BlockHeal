@@ -4,9 +4,10 @@ package bc;
 
 
 message Prescript{
-    string LinkToLocalSystem = 1;
-    string reciever_publicKey = 2; 
-    string sender_publicKey = 3;
+    string index = 4;
+    string hash = 1;
+    string patPublicKey = 2; 
+    string docPublicKey = 3;
 }
 
 
