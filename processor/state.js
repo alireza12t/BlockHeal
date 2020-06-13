@@ -142,7 +142,6 @@ class BC98State {
   // /////////////////////////////////////////////////////////////////////
 
   setAccount(label, pubKey) {
-    //TODO make action for register in protos
     // 0: patient
     // 1: doctor
     // 2: drugstore
@@ -280,10 +279,10 @@ class BC98State {
       });
   }
 
-  prescriptTrx(link, recieverPubKey, senderPubKey) {
-    // TODO: wait for handler
-  }
+  prescriptTrx(link, recieverPubKey, senderPubKey) {}
 
+  // TODO this method is for assining sent prescript to doctor if this method works
+  // apply this for addind hash for patient
   fromDoctor(prescriptHash, prescriptIndex, docPublicKey, patPublickey) {
     return this.getMessage(docPublicKey, "Doctor")
       .then((accountValue) => {
