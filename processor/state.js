@@ -142,7 +142,6 @@ class BC98State {
   // /////////////////////////////////////////////////////////////////////
 
   setAccount(label, pubKey) {
-    //TODO make action for register in protos
     // 0: patient
     // 1: doctor
     // 2: drugstore
@@ -280,23 +279,53 @@ class BC98State {
       });
   }
 
-  prescriptTrx(link, recieverPubKey, senderPubKey) {
-    // TODO: wait for handler
-  }
+  prescriptTrx(link, recieverPubKey, senderPubKey) {}
 
-  toPatient(link, docPublicKey, patPublickey) {
-    return this.getMessage(patPublickey, "Patient").then((accountValue) => {
-      if (!accountValue || accountValue.publickey !== pubKey) {
-        logger.error("No Account exists in patients!");
-        throw new Error("The Account is not valid!");
-      }
+  // TODO this method is for assining sent prescript to doctor if this method works
+  // apply this for addind hash for patient
+  fromDoctor(prescriptHash, prescriptIndex, docPublicKey, patPublicKey) {
+    return this.getMessage(docPublicKey, "Doctor")
+      .then((accountValue) => {
+        if (!accountValue || accountValue.publicKey !== docPublicKey) {
+          logger.error("No Account exists in doctors!");
+          throw new Error("The doctor Account is not valid!");
+        }
 
-      const payloadPatient = {
-        publickey: accountValue.publickey,
-        label: accountValue.label,
-        prescript: link,
-      };
-    });
+        const doctorPayload = {
+          publicKey: accountValue.publicKey,
+          label: accountValue.label,
+          sentPrescripts: sentPrescripts.add({
+            index: prescriptIndex,
+            hash: prescriptHash,
+            patPublicKey: patPublicKey,
+            docPublicKey: docPublicKey,
+          }),
+        };
+
+        const dataAccount = this.encodeFunction(
+          [doctorPayload],
+          "../protos/doctor.proto",
+          "doctorAccount"
+        );
+
+        const addressAccount = createAccountAddress(docPublicKey);
+
+        this.addressCache.set(addressAccount, dataAccount[0]);
+
+        let entries = {
+          [addressAccount]: dataAccount[0],
+        };
+        logger.info(`prescript with hash: ${prescriptHash} and index: ${prescriptIndex}
+                    has added to doctor with pulicKey: ${docPublicKey}`);
+        return this.context.setState(entries);
+      })
+      .catch((err) => {
+        let message = err.message ? err.message : err;
+        logger.error(`getAccount in blockchain is not responding!: ${message}`);
+        throw new Error(
+          "getAccount in blockchain is not responding!:" + " " + err
+        );
+      });
   }
 }
 

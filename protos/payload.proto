@@ -6,22 +6,23 @@ message PGPayload {
     oneof options {
     CreateAccountAction createaccount = 200;
     SendPrescriptAction sendprescript = 201; 
-    RecievePrescriptAction receiveprescript = 201; 
-
-
+    RecievePrescriptAction receiveprescript = 202; 
     }
 }
 
 
 
 message CreateAccountAction {
-          string label = 1;
+    string label = 1;
 }
 
 message SendPrescriptAction {
-          string hash = 1;
+    string index = 1;         
+    string hash = 2;
+    string patPublicKey = 3;
+    string docPublicKey = 4;
 }
 
 message RecievePrescriptAction {
-          string hash = 1;
+    string hash = 1;
 }

@@ -11,5 +11,5 @@ message drugStoreAccount {
 }
 
 message storeAccount_Container {
-    repeated DrugStore_Account entries = 1;
+    repeated drugStoreAccount entries = 1;
 }
