@@ -39,9 +39,11 @@ class TransactionHelper {
         recievePrescript.senderPublicKey = publicKey.hex()
         recievePrescript.recieverPublicKey = recieverPublicKeyHex
         recievePrescript.prescriptHash = hash(item: precscript)
-
-        if let payloadStr = try? recievePrescript.jsonString() {
-            return createTxn(payload: payloadStr, signer: signer)
+        
+        let encodedPrescript = try? CBOR.encodeAny(recievePrescript)
+        
+        if let payload = encodedPrescript {
+            return createTxn(encodedPayload: payload, signer: signer)
         }
         return nil
     }
@@ -56,7 +58,7 @@ class TransactionHelper {
         return digestHex
     }
     
-    class func createTxn(payload: String, signer: Signer) -> Data? {
+    class func createTxn(encodedPayload: [UInt8], signer: Signer) -> Data? {
         //MARK: Create the Transaction Header
         do {
             var transactionHeader = TransactionHeader()
@@ -67,7 +69,8 @@ class TransactionHelper {
             transactionHeader.familyVersion = "1.0"
             transactionHeader.inputs = [""]
             transactionHeader.outputs = [""]
-            transactionHeader.payloadSha512 = TransactionHelper.hash(item: payload)
+            
+            transactionHeader.payloadSha512 = TransactionHelper.hash(item: Data(bytes: encodedPayload, count: encodedPayload.encode().count).base64EncodedString())
             transactionHeader.nonce = UUID().uuidString
             
             
@@ -86,51 +89,53 @@ class TransactionHelper {
             } catch {
                 Log.e("Unable to serialize data")
             }
-            transaction.payload = Data(bytes: payload.encode(), count: payload.encode().count)
+            transaction.payload = Data(bytes: encodedPayload, count: encodedPayload.encode().count)
             
             
             //MARK: Encode the Transaction(s)
             do {
                 let txn_bytes = try transaction.serializedData()
                 
-                //MARK: Create the BatchHeader
+                return txn_bytes
                 
-                var batchHeader = BatchHeader()
-                do {
-                    batchHeader.signerPublicKey = try signer.getPublicKey().hex()
-                } catch {
-                    Log.e("Failed to get signer public key")
-                }
-                batchHeader.transactionIds = [transaction.headerSignature]
-                
-                //MARK: Create the Batch
-                
-                var batch = Batch()
-                do {
-                    let batchHeaderData = try batchHeader.serializedData()
-                    batch.header = batchHeaderData
-                    let signatureData = batchHeaderData.map {UInt8 (littleEndian: $0)}
-                    do {
-                        let signature = try signer.sign(data: signatureData)
-                        batch.headerSignature = signature
-                    } catch {
-                        Log.e("Unexpected error signing batch")
-                    }
-                } catch {
-                    Log.e("Unable to serialize data")
-                }
-                batch.transactions = [transaction]
-                
-                
-                //MARK: Encode the Batch(es) in a BatchList
-                var batchList = BatchList()
-                batchList.batches = [batch]
-                do {
-                    let batchList_data = try batchList.serializedData()
-                    return batchList_data
-                } catch {
-                    Log.e("Unable to serialize data")
-                }
+//                //MARK: Create the BatchHeader
+//
+//                var batchHeader = BatchHeader()
+//                do {
+//                    batchHeader.signerPublicKey = try signer.getPublicKey().hex()
+//                } catch {
+//                    Log.e("Failed to get signer public key")
+//                }
+//                batchHeader.transactionIds = [transaction.headerSignature]
+//
+//                //MARK: Create the Batch
+//
+//                var batch = Batch()
+//                do {
+//                    let batchHeaderData = try batchHeader.serializedData()
+//                    batch.header = batchHeaderData
+//                    let signatureData = batchHeaderData.map {UInt8 (littleEndian: $0)}
+//                    do {
+//                        let signature = try signer.sign(data: signatureData)
+//                        batch.headerSignature = signature
+//                    } catch {
+//                        Log.e("Unexpected error signing batch")
+//                    }
+//                } catch {
+//                    Log.e("Unable to serialize data")
+//                }
+//                batch.transactions = [transaction]
+//
+//
+//                //MARK: Encode the Batch(es) in a BatchList
+//                var batchList = BatchList()
+//                batchList.batches = [batch]
+//                do {
+//                    let batchList_data = try batchList.serializedData()
+//                    return batchList_data
+//                } catch {
+//                    Log.e("Unable to serialize data")
+//                }
             } catch {
                 Log.e("Unable to serialize data")
             }
