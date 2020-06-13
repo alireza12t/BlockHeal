@@ -17,5 +17,5 @@ message patientAccount {
 }
 
 message PatientAcount_Container {
-    repeated Patient_Account entries = 1;
+    repeated patientAccount entries = 1;
 }

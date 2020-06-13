@@ -164,7 +164,12 @@ class Blockchain98Handler extends TransactionHandler {
           }
           logger.info(`Trx recieved from: ${docPublicKey} to: ${patPublickey}
                       the prescript index is: ${prescriptIndex}`);
-          return bC98State.fromDoctor(amount, publicKey);
+          return bC98State.fromDoctor(
+            prescriptHash,
+            prescriptIndex,
+            patPublickey,
+            docPublicKey
+          );
         };
 
         let actionPromise;

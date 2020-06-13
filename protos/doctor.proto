@@ -10,5 +10,5 @@ message doctorAccount {
 }
 
 message DoctorAccount_Container {
-    repeated Doctor_Account entries = 1;
+    repeated doctorAccount entries = 1;
 }
