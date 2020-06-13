@@ -58,6 +58,15 @@ class TransactionHelper {
         return digestHex
     }
     
+    class func hash(data: Data) -> String {
+        var digest = [UInt8](repeating: 0, count: Int(CC_SHA512_DIGEST_LENGTH))
+            let value = data as NSData
+            CC_SHA512(value.bytes, CC_LONG(data.count), &digest)
+        
+        let digestHex = digest.map { String(format: "%02hhx", $0) }.joined()
+        return digestHex
+    }
+    
     class func createTxn(encodedPayload: [UInt8], signer: Signer) -> Data? {
         //MARK: Create the Transaction Header
         do {
@@ -70,7 +79,7 @@ class TransactionHelper {
             transactionHeader.inputs = [""]
             transactionHeader.outputs = [""]
             
-            transactionHeader.payloadSha512 = TransactionHelper.hash(item: Data(bytes: encodedPayload, count: encodedPayload.encode().count).base64EncodedString())
+            transactionHeader.payloadSha512 = TransactionHelper.hash(data: Data(bytes: encodedPayload, count: encodedPayload.encode().count))
             transactionHeader.nonce = UUID().uuidString
             
             

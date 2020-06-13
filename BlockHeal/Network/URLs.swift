@@ -55,9 +55,10 @@ enum URLs: APIConfiguration {
         default:
             break
         }
+        
 
         switch self {
-       
+
         default:
             urlRequest.setValue(NetworkConstant.ContentType.json, forHTTPHeaderField: NetworkConstant.HTTPHeaderField.contentType)
         }
