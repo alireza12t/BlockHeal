@@ -24,7 +24,7 @@ message Prescription_Action {
 }
 
 message recievePrescript {
-    string LinkToLocalSystem = 1;
+    string prescriptHash = 1;
     string reciever_publicKey = 2;
     string sender_publicKey = 3;
 }
@@ -32,7 +32,8 @@ message recievePrescript {
 message sendPrescript {
     string sender_publicKey = 2;
     string reciever_publicKey = 3;
-    string linkToLocalSystem = 1;
+    string prescriptHash = 1;
+
 }
 
 
