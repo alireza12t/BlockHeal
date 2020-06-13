@@ -127,30 +127,44 @@ class Blockchain98Handler extends TransactionHandler {
           return bC98State.setCharge(amount, publicKey);
         };
 
-        //this function will send prescript from doctor to
+        //this function will send prescript hash from doctor to
         //pateint and for doctor must be added to sent prescrit
         //and for pateint must be added to recieved prescript
-        const prescriptTrx = (link, docPublicKey, patPublickey) => {
-          // TODO save prescript and send link
+        // const prescriptTrx = (hash, docPublicKey, patPublickey) => {
 
+        //   //send
+        //   if (docPublicKey !== userPublicKey) {
+        //     throw new Error("Doctor account is not valid");
+        //   }
+        //   return bC98State
+        //     .getMessage([hash, docPublicKey], "Doctor")
+        //     .catch((err) => {
+        //       const message = err.message || err;
+        //       logger.error(
+        //         `prescript trx in blockchain is not responding: ${message}`
+        //       );
+        //       throw new Error(
+        //         `prescript trx in blockchain is not responding: ${err}`
+        //       );
+        //     })
+        //     .then((offerValue) => {
+        //       return bC98State.toPatient(link, docPublicKey, patPublickey);
+        //     });
+        // };
+
+        const prescriptTrx = (
+          prescriptHash,
+          prescriptIndex,
+          docPublicKey,
+          patPublickey
+        ) => {
           //send
-          if (docPublicKey !== userPublicKey) {
+          if (docPublicKey !== userPublicKey && prescriptHash.length != 64) {
             throw new Error("Doctor account is not valid");
           }
-          return bC98State
-            .getMessage([link, docPublicKey], "Doctor")
-            .catch((err) => {
-              const message = err.message || err;
-              logger.error(
-                `prescript trx in blockchain is not responding: ${message}`
-              );
-              throw new Error(
-                `prescript trx in blockchain is not responding: ${err}`
-              );
-            })
-            .then((offerValue) => {
-              return bC98State.toPatient(link, docPublicKey, patPublickey);
-            });
+          logger.info(`Trx recieved from: ${docPublicKey} to: ${patPublickey}
+                      the prescript index is: ${prescriptIndex}`);
+          return bC98State.fromDoctor(amount, publicKey);
         };
 
         let actionPromise;
@@ -175,17 +189,27 @@ class Blockchain98Handler extends TransactionHandler {
             actionPromise = chargeAccount(amount, userPublicKey);
             break;
 
-          case "prescriptTrxAction":
-            if (!update && !update.chargeAccount) {
+          case "SendPrescriptAction":
+            if (!update && !update.prescriptTrx) {
               logger.error('update does not have "prescriptTrx" field!');
               throw new Error('update does not have "prescriptTrx" field!');
             }
-            //let amount = update.chargeaccount.amount;
 
             // ISSUE: can wa define this Trx(send by doc and recieve by pat)
             // in one method or we should define different methods?
 
-            actionPromise = prescriptTrx(link, docPublicKey, patPublickey);
+            // TODO check if these fields are valid or not
+            let hash = update.sendprescript.hash;
+            let index = update.sendprescript.index;
+            let docPublicKey = userPublicKey;
+            let patPublickey = update.sendprescript.patPublickey;
+
+            actionPromise = prescriptTrx(
+              hash,
+              index,
+              docPublicKey,
+              patPublickey
+            );
             break;
 
           default:
