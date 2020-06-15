@@ -14,7 +14,8 @@ enum URLs: APIConfiguration {
 
     var METHOD: HTTPMethod {
         switch self {
-            
+        case .transaction:
+            return .post
         default:
             return .get
         }

@@ -14,8 +14,6 @@
 		F527601E248F2E99009BA731 /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F527601D248F2E99009BA731 /* CommonCrypto.framework */; };
 		F527601F248F2E99009BA731 /* CommonCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F527601D248F2E99009BA731 /* CommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F5276020248F2E9B009BA731 /* Pods_BlockHeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88BCA6499A37A3EAF110232A /* Pods_BlockHeal.framework */; };
-		F5276024248F3211009BA731 /* transaction.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5276022248F3211009BA731 /* transaction.pb.swift */; };
-		F5276025248F3211009BA731 /* batch.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5276023248F3211009BA731 /* batch.pb.swift */; };
 		F52CCF23248F13A400DE07DE /* TransactionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A18459248EAAB600286EA2 /* TransactionHelper.swift */; };
 		F541E5572473249E00A0D6FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F541E5562473249E00A0D6FE /* AppDelegate.swift */; };
 		F541E5592473249E00A0D6FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F541E5582473249E00A0D6FE /* SceneDelegate.swift */; };
@@ -26,6 +24,9 @@
 		F576566024779E4F006321FC /* UserAction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F576565F24779E4F006321FC /* UserAction.storyboard */; };
 		F5A18473248EDDA600286EA2 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A18472248EDDA600286EA2 /* Keychain.swift */; };
 		F5A3DCC62497A3520036515E /* payload.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A3DCC52497A3520036515E /* payload.pb.swift */; };
+		F5A3DCC92497B6B80036515E /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A3DCC82497B6B80036515E /* Transaction.swift */; };
+		F5A3DCD52497B83B0036515E /* batch.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A3DCD32497B83B0036515E /* batch.pb.swift */; };
+		F5A3DCD62497B83B0036515E /* transaction.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A3DCD42497B83B0036515E /* transaction.pb.swift */; };
 		F5C8641C2494FDA400BAE28D /* drugstore.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C864182494FDA400BAE28D /* drugstore.pb.swift */; };
 		F5C8641D2494FDA400BAE28D /* doctor.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C864192494FDA400BAE28D /* doctor.pb.swift */; };
 		F5C8641E2494FDA400BAE28D /* patient.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C8641A2494FDA400BAE28D /* patient.pb.swift */; };
@@ -86,8 +87,6 @@
 		F5276016248F2C3C009BA731 /* secp256k1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = secp256k1.framework; path = Carthage/Build/iOS/secp256k1.framework; sourceTree = "<group>"; };
 		F5276017248F2C3C009BA731 /* SawtoothSigning.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SawtoothSigning.framework; path = Carthage/Build/iOS/SawtoothSigning.framework; sourceTree = "<group>"; };
 		F527601D248F2E99009BA731 /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = Carthage/Build/iOS/CommonCrypto.framework; sourceTree = "<group>"; };
-		F5276022248F3211009BA731 /* transaction.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = transaction.pb.swift; path = "Carthage/Checkouts/sawtooth-sdk-swift/protos/transaction.pb.swift"; sourceTree = SOURCE_ROOT; };
-		F5276023248F3211009BA731 /* batch.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = batch.pb.swift; path = "Carthage/Checkouts/sawtooth-sdk-swift/protos/batch.pb.swift"; sourceTree = SOURCE_ROOT; };
 		F541E5532473249E00A0D6FE /* BlockHeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockHeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F541E5562473249E00A0D6FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F541E5582473249E00A0D6FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +99,9 @@
 		F5A18459248EAAB600286EA2 /* TransactionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHelper.swift; sourceTree = "<group>"; };
 		F5A18472248EDDA600286EA2 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		F5A3DCC52497A3520036515E /* payload.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = payload.pb.swift; sourceTree = "<group>"; };
+		F5A3DCC82497B6B80036515E /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		F5A3DCD32497B83B0036515E /* batch.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = batch.pb.swift; sourceTree = "<group>"; };
+		F5A3DCD42497B83B0036515E /* transaction.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = transaction.pb.swift; sourceTree = "<group>"; };
 		F5C864182494FDA400BAE28D /* drugstore.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = drugstore.pb.swift; sourceTree = "<group>"; };
 		F5C864192494FDA400BAE28D /* doctor.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = doctor.pb.swift; sourceTree = "<group>"; };
 		F5C8641A2494FDA400BAE28D /* patient.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = patient.pb.swift; sourceTree = "<group>"; };
@@ -206,6 +208,14 @@
 			path = BlockHeal;
 			sourceTree = "<group>";
 		};
+		F5A3DCCA2497B6BF0036515E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F5A3DCC82497B6B80036515E /* Transaction.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		F5E30A4C2473A04300C347D4 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,9 +298,10 @@
 		F5E30A8A2473A65E00C347D4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F5276023248F3211009BA731 /* batch.pb.swift */,
-				F5276022248F3211009BA731 /* transaction.pb.swift */,
+				F5A3DCD32497B83B0036515E /* batch.pb.swift */,
+				F5A3DCD42497B83B0036515E /* transaction.pb.swift */,
 				F5E30A8B2473A66900C347D4 /* Protos */,
+				F5A3DCCA2497B6BF0036515E /* Network */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -320,6 +331,7 @@
 				F541E5512473249E00A0D6FE /* Resources */,
 				6AEDE3A2340EC5B4D7AE4FD9 /* [CP] Embed Pods Frameworks */,
 				F527601C248F2E99009BA731 /* Embed Frameworks */,
+				F5A3DCD92497DA8E0036515E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -419,6 +431,26 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BlockHeal/Pods-BlockHeal-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F5A3DCD92497DA8E0036515E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SawtoothSigning.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/secp256k1.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -429,6 +461,7 @@
 				F52CCF23248F13A400DE07DE /* TransactionHelper.swift in Sources */,
 				F5C8641D2494FDA400BAE28D /* doctor.pb.swift in Sources */,
 				F5E30A702473A0A900C347D4 /* UIApplication.swift in Sources */,
+				F5A3DCD62497B83B0036515E /* transaction.pb.swift in Sources */,
 				F5E30A7A2473A0A900C347D4 /* UIColor.swift in Sources */,
 				F5E30A7C2473A0A900C347D4 /* UICollectionViewCell.swift in Sources */,
 				F5E30A7E2473A0A900C347D4 /* Date.swift in Sources */,
@@ -440,12 +473,12 @@
 				F5E30A742473A0A900C347D4 /* UITableViewCell.swift in Sources */,
 				F5E30A6E2473A0A900C347D4 /* UIButton.swift in Sources */,
 				F5A18473248EDDA600286EA2 /* Keychain.swift in Sources */,
+				F5A3DCC92497B6B80036515E /* Transaction.swift in Sources */,
 				F5E30A522473A08E00C347D4 /* InteractionPanToClose.swift in Sources */,
 				F5E30A7B2473A0A900C347D4 /* Formatter.swift in Sources */,
 				F5E30A492473A03800C347D4 /* NetworkInterceptor.swift in Sources */,
 				F5E30A4A2473A03800C347D4 /* URLs.swift in Sources */,
 				F5E30A6D2473A0A900C347D4 /* UIImage.swift in Sources */,
-				F5276025248F3211009BA731 /* batch.pb.swift in Sources */,
 				F5E30A7F2473A0A900C347D4 /* Collection.swift in Sources */,
 				F5E30A712473A0A900C347D4 /* UIFont.swift in Sources */,
 				F5E30A482473A03800C347D4 /* NetworkConstants.swift in Sources */,
@@ -458,10 +491,10 @@
 				F5E30A772473A0A900C347D4 /* RectangularDashedView.swift in Sources */,
 				F5E30A892473A45200C347D4 /* StoryboardName.swift in Sources */,
 				F5E30A762473A0A900C347D4 /* Numeric.swift in Sources */,
+				F5A3DCD52497B83B0036515E /* batch.pb.swift in Sources */,
 				F5E30A832473A0DD00C347D4 /* ValueKeeper.swift in Sources */,
 				F5E30A4B2473A03800C347D4 /* API.swift in Sources */,
 				F5E30A732473A0A900C347D4 /* String.swift in Sources */,
-				F5276024248F3211009BA731 /* transaction.pb.swift in Sources */,
 				F5C864212494FDDC00BAE28D /* prescript.pb.swift in Sources */,
 				F5E30A722473A0A900C347D4 /* UISegmentedControl.swift in Sources */,
 				F5C8641C2494FDA400BAE28D /* drugstore.pb.swift in Sources */,
@@ -611,8 +644,10 @@
 			baseConfigurationReference = 9ED1B5AB936AB438E0CECD7A /* Pods-BlockHeal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XYY68H4963;
+				CURRENT_PROJECT_VERSION = 15;
+				DEVELOPMENT_TEAM = AJLMAG95WU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -623,8 +658,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.BlockHeal..BlockHeal;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Alireza12t.BlockHeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -635,8 +671,10 @@
 			baseConfigurationReference = 76D459465758ABA3AFCFE936 /* Pods-BlockHeal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XYY68H4963;
+				CURRENT_PROJECT_VERSION = 15;
+				DEVELOPMENT_TEAM = AJLMAG95WU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -647,8 +685,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.BlockHeal..BlockHeal;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Alireza12t.BlockHeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

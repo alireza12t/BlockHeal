@@ -21,7 +21,7 @@ extension String: ParameterEncoding {
 
 class APIHelper {
     
-    static func createAccountTransactiion(body: Data) -> Observable<EmptyResponse> {
+    static func createAccountTransactiion(body: Data) -> Observable<TransactionData> {
         return request(URLs.transaction(body: body))
     }
 
