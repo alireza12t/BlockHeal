@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let console = ConsoleDestination()
         console.format = "$DHH:mm:ss$d $L $M"
         // To Cloud
-        let cloud = SBPlatformDestination(appID: "o8Qepn", appSecret: "qa1mcbzixt3pQ7uNACzaw9Tx1qyqvgh1", encryptionKey: "pausoy9TrlgcrpvuCrjbIniIPgC0mcmo")
+        let cloud = SBPlatformDestination(appID: "1P9bB9", appSecret: "lnsjjfxpnMljksa9cckKzpqf74tcnfze", encryptionKey: "bqxRhsiidZp9Lbk9sjbkx12uyvrxkzmz")
 
         log.addDestination(console)
         log.addDestination(cloud)

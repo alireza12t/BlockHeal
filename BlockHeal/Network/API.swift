@@ -5,7 +5,7 @@ import Alamofire
 import RxSwift
 import SwiftyJSON
 
-struct EmptyResponse {
+struct EmptyResponse: Codable {
 }
 
 extension String: ParameterEncoding {
@@ -21,10 +21,9 @@ extension String: ParameterEncoding {
 
 class APIHelper {
     
-//    static func LoginWithEmail_Password(username: String, password: String) -> Observable<Login> {
-//        return request(URLs.Login(username: username, password: password))
-//        //        return LoginRequest(URLs.Login(username: username, password: password))
-//    }
+    static func createAccountTransactiion(body: Data) -> Observable<EmptyResponse> {
+        return request(URLs.transaction(body: body))
+    }
 
 
     

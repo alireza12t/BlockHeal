@@ -21,6 +21,12 @@ enum UserDefaultKeys:String {
     case PublicKey
 }
 
+enum Role: String{
+    case Doctor
+    case Patient
+    case DrugStore
+}
+
 
 class TransactionHelper {
     
@@ -30,22 +36,13 @@ class TransactionHelper {
         return Signer(context: context, privateKey: privateKey)
     }
     
-    
-    class func sendPrescript(recieverPublicKeyHex: String, precscript: String) -> Data? {
-        let signer: Signer!
-        signer = getSigner()
+    class func hash(data: Data) -> String {
+        var digest = [UInt8](repeating: 0, count: Int(CC_SHA512_DIGEST_LENGTH))
+            let value = data as NSData
+            CC_SHA512(value.bytes, CC_LONG(data.count), &digest)
         
-        var recievePrescript = Bc_sendPrescript()
-        recievePrescript.senderPublicKey = publicKey.hex()
-        recievePrescript.recieverPublicKey = recieverPublicKeyHex
-        recievePrescript.prescriptHash = hash(item: precscript)
-        
-        let encodedPrescript = try? CBOR.encodeAny(recievePrescript)
-        
-        if let payload = encodedPrescript {
-            return createTxn(encodedPayload: payload, signer: signer)
-        }
-        return nil
+        let digestHex = digest.map { String(format: "%02hhx", $0) }.joined()
+        return digestHex
     }
     
     class func hash(item: String) -> String {
@@ -58,14 +55,40 @@ class TransactionHelper {
         return digestHex
     }
     
-    class func hash(data: Data) -> String {
-        var digest = [UInt8](repeating: 0, count: Int(CC_SHA512_DIGEST_LENGTH))
-            let value = data as NSData
-            CC_SHA512(value.bytes, CC_LONG(data.count), &digest)
+    
+    class func sendPrescript(recieverPublicKeyHex: String, precscript: String, index: String) -> Data? {
+        let signer: Signer!
+        signer = getSigner()
         
-        let digestHex = digest.map { String(format: "%02hhx", $0) }.joined()
-        return digestHex
+        var recievePrescript = SendPrescriptAction()
+        recievePrescript.patPublicKey = publicKey.hex()
+        recievePrescript.docPublicKey = recieverPublicKeyHex
+        recievePrescript.hash = hash(item: index + publicKey.hex() + recieverPublicKeyHex + precscript)
+        
+        let encodedPrescript = try? CBOR.encodeAny(recievePrescript)
+        
+        if let payload = encodedPrescript {
+            return createTxn(encodedPayload: payload, signer: signer)
+        }
+        return nil
     }
+    
+    class func createAccount(role: Role) -> Data? {
+        let signer: Signer!
+        signer = getSigner()
+        
+        var createAccount = CreateAccountAction()
+        createAccount.label = role.rawValue
+        
+        let encodedCreateAccount = createAccount.encode()
+        
+        return createTxn(encodedPayload: encodedCreateAccount, signer: signer)
+        
+    }
+    
+
+    
+
     
     class func createTxn(encodedPayload: [UInt8], signer: Signer) -> Data? {
         //MARK: Create the Transaction Header
@@ -76,8 +99,8 @@ class TransactionHelper {
             
             transactionHeader.familyName = "BlockHeal"
             transactionHeader.familyVersion = "1.0"
-            transactionHeader.inputs = [""]
-            transactionHeader.outputs = [""]
+            transactionHeader.inputs = ["'59b423'"]
+            transactionHeader.outputs = ["'59b423'"]
             
             transactionHeader.payloadSha512 = TransactionHelper.hash(data: Data(bytes: encodedPayload, count: encodedPayload.encode().count))
             transactionHeader.nonce = UUID().uuidString
@@ -104,7 +127,6 @@ class TransactionHelper {
             //MARK: Encode the Transaction(s)
             do {
                 let txn_bytes = try transaction.serializedData()
-                
                 return txn_bytes
                 
 //                //MARK: Create the BatchHeader

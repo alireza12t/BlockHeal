@@ -14,9 +14,9 @@ class Log {
     static func i(callingFunctionName: String = #function, callingClassName: String = #file,_ messsage: String = "", file: Any? = nil){
         if self.isActive{
             if let file = file {
-                 Log.log.debug("\((callingClassName as NSString).lastPathComponent) - \(callingFunctionName)" + " => " + messsage, context: file)
+                 Log.log.debug("BlockHeal => \((callingClassName as NSString).lastPathComponent) - \(callingFunctionName)" + " => " + messsage, context: file)
              } else {
-                 Log.log.debug("\((callingClassName as NSString).lastPathComponent) - \(callingFunctionName)" + " => " + messsage)
+                 Log.log.debug("BlockHeal => \((callingClassName as NSString).lastPathComponent) - \(callingFunctionName)" + " => " + messsage)
              }
         }
     }
@@ -26,9 +26,9 @@ class Log {
     static func e(callingFunctionName: String = #function, callingClassName: String = #file,_ messsage: String = "", file: Any? = nil)  {
         if self.isActive{
             if let file = file {
-                Log.log.error("\((callingClassName as NSString).lastPathComponent) - \(callingFunctionName)" + " => " + messsage, context: file)
+                Log.log.error("BlockHeal => \((callingClassName as NSString).lastPathComponent) - \(callingFunctionName)" + " => " + messsage, context: file)
             } else {
-                Log.log.error("\((callingClassName as NSString).lastPathComponent) - \(callingFunctionName)" + " => " + messsage)
+                Log.log.error("BlockHeal => \((callingClassName as NSString).lastPathComponent) - \(callingFunctionName)" + " => " + messsage)
             }
         }
     }
@@ -36,9 +36,9 @@ class Log {
     static func w(callingFunctionName: String = #function, callingClassName: String = #file,_ messsage: String = "", file: Any? = nil)  {
         if self.isActive{
             if let file = file {
-                 Log.log.warning("\((callingClassName as NSString).lastPathComponent) - \(callingFunctionName)" + " => " + messsage, context: file)
+                 Log.log.warning("BlockHeal => \((callingClassName as NSString).lastPathComponent) - \(callingFunctionName)" + " => " + messsage, context: file)
              } else {
-                 Log.log.warning("\((callingClassName as NSString).lastPathComponent) - \(callingFunctionName)" + " => " + messsage)
+                 Log.log.warning("BlockHeal => \((callingClassName as NSString).lastPathComponent) - \(callingFunctionName)" + " => " + messsage)
              }
         }
     }

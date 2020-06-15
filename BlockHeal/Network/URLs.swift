@@ -5,10 +5,11 @@ import Alamofire
 
 //let BASEURL = Bundle.main.infoDictionary?["ServerName"] as! String
 
-let BaseURL = ""
+let BaseURL = "192.168.1.5:3001"
 
 enum URLs: APIConfiguration {
-
+    
+    case transaction(body: Data)
 
 
     var METHOD: HTTPMethod {
@@ -20,11 +21,10 @@ enum URLs: APIConfiguration {
     }
 
     var FULL_PATH_URL: String {
-        return ""
-//        switch self {
-//
-//
-//        }
+        switch self {
+        case .transaction:
+            return BaseURL + "/blockchain/transactions"
+        }
     }
 
     var PARAMETERS: Parameters?
@@ -51,17 +51,16 @@ enum URLs: APIConfiguration {
         urlRequest = URLRequest(url: (urlComponents?.url)!)
 
         switch self {
-
-        default:
-            break
+        case .transaction(let body):
+            urlRequest.httpBody = body
         }
         
 
-        switch self {
-
-        default:
-            urlRequest.setValue(NetworkConstant.ContentType.json, forHTTPHeaderField: NetworkConstant.HTTPHeaderField.contentType)
-        }
+//        switch self {
+//
+//        default:
+////            urlRequest.setValue(NetworkConstant.ContentType.json, forHTTPHeaderField: NetworkConstant.HTTPHeaderField.contentType)
+//        }
 
         
         urlRequest.httpMethod = METHOD.rawValue
