@@ -44,27 +44,17 @@ struct PGPayload {
     set {options = .sendprescript(newValue)}
   }
 
-  var receiveprescript: RecievePrescriptAction {
-    get {
-      if case .receiveprescript(let v)? = options {return v}
-      return RecievePrescriptAction()
-    }
-    set {options = .receiveprescript(newValue)}
-  }
-
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_Options: Equatable {
     case createaccount(CreateAccountAction)
     case sendprescript(SendPrescriptAction)
-    case receiveprescript(RecievePrescriptAction)
 
   #if !swift(>=4.1)
     static func ==(lhs: PGPayload.OneOf_Options, rhs: PGPayload.OneOf_Options) -> Bool {
       switch (lhs, rhs) {
       case (.createaccount(let l), .createaccount(let r)): return l == r
       case (.sendprescript(let l), .sendprescript(let r)): return l == r
-      case (.receiveprescript(let l), .receiveprescript(let r)): return l == r
       default: return false
       }
     }
@@ -104,18 +94,6 @@ struct SendPrescriptAction {
   init() {}
 }
 
-struct RecievePrescriptAction {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  var hash: String = String()
-
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  init() {}
-}
-
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension PGPayload: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -124,7 +102,6 @@ extension PGPayload: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementation
     100: .same(proto: "action"),
     200: .same(proto: "createaccount"),
     201: .same(proto: "sendprescript"),
-    202: .same(proto: "receiveprescript"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -147,14 +124,6 @@ extension PGPayload: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementation
         }
         try decoder.decodeSingularMessageField(value: &v)
         if let v = v {self.options = .sendprescript(v)}
-      case 202:
-        var v: RecievePrescriptAction?
-        if let current = self.options {
-          try decoder.handleConflictingOneOf()
-          if case .receiveprescript(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.options = .receiveprescript(v)}
       default: break
       }
     }
@@ -169,8 +138,6 @@ extension PGPayload: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementation
       try visitor.visitSingularMessageField(value: v, fieldNumber: 200)
     case .sendprescript(let v)?:
       try visitor.visitSingularMessageField(value: v, fieldNumber: 201)
-    case .receiveprescript(let v)?:
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 202)
     case nil: break
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -255,35 +222,6 @@ extension SendPrescriptAction: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     if lhs.hash != rhs.hash {return false}
     if lhs.patPublicKey != rhs.patPublicKey {return false}
     if lhs.docPublicKey != rhs.docPublicKey {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension RecievePrescriptAction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "RecievePrescriptAction"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "hash"),
-  ]
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &self.hash)
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.hash.isEmpty {
-      try visitor.visitSingularStringField(value: self.hash, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: RecievePrescriptAction, rhs: RecievePrescriptAction) -> Bool {
-    if lhs.hash != rhs.hash {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
