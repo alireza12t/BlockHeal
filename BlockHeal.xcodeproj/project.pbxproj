@@ -7,13 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F5276018248F2E99009BA731 /* SawtoothSigning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5276017248F2C3C009BA731 /* SawtoothSigning.framework */; };
-		F5276019248F2E99009BA731 /* SawtoothSigning.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F5276017248F2C3C009BA731 /* SawtoothSigning.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F527601A248F2E99009BA731 /* secp256k1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5276016248F2C3C009BA731 /* secp256k1.framework */; };
-		F527601B248F2E99009BA731 /* secp256k1.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F5276016248F2C3C009BA731 /* secp256k1.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F527601E248F2E99009BA731 /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F527601D248F2E99009BA731 /* CommonCrypto.framework */; };
-		F527601F248F2E99009BA731 /* CommonCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F527601D248F2E99009BA731 /* CommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F5276020248F2E9B009BA731 /* Pods_BlockHeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88BCA6499A37A3EAF110232A /* Pods_BlockHeal.framework */; };
+		ABEA160FED507C1DA0325CF5 /* Pods_BlockHeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2AD614EEA1C52B15A6BFAE1 /* Pods_BlockHeal.framework */; };
 		F52CCF23248F13A400DE07DE /* TransactionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A18459248EAAB600286EA2 /* TransactionHelper.swift */; };
 		F541E5572473249E00A0D6FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F541E5562473249E00A0D6FE /* AppDelegate.swift */; };
 		F541E5592473249E00A0D6FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F541E5582473249E00A0D6FE /* SceneDelegate.swift */; };
@@ -22,11 +16,26 @@
 		F541E560247324A000A0D6FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F541E55F247324A000A0D6FE /* Assets.xcassets */; };
 		F541E563247324A000A0D6FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F541E561247324A000A0D6FE /* LaunchScreen.storyboard */; };
 		F576566024779E4F006321FC /* UserAction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F576565F24779E4F006321FC /* UserAction.storyboard */; };
+		F57ADA7F2499D9B2000C6633 /* Patient.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F57ADA7E2499D9B2000C6633 /* Patient.storyboard */; };
+		F57ADA852499DFFA000C6633 /* PatientUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57ADA842499DFFA000C6633 /* PatientUIViewController.swift */; };
+		F57ADA872499E01F000C6633 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57ADA862499E01F000C6633 /* BaseViewController.swift */; };
+		F57ADA892499E14F000C6633 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57ADA882499E14F000C6633 /* NetworkManager.swift */; };
+		F57ADA8B2499E246000C6633 /* StoringData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57ADA8A2499E246000C6633 /* StoringData.swift */; };
 		F5A18473248EDDA600286EA2 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A18472248EDDA600286EA2 /* Keychain.swift */; };
 		F5A3DCC62497A3520036515E /* payload.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A3DCC52497A3520036515E /* payload.pb.swift */; };
 		F5A3DCC92497B6B80036515E /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A3DCC82497B6B80036515E /* Transaction.swift */; };
 		F5A3DCD52497B83B0036515E /* batch.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A3DCD32497B83B0036515E /* batch.pb.swift */; };
 		F5A3DCD62497B83B0036515E /* transaction.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A3DCD42497B83B0036515E /* transaction.pb.swift */; };
+		F5A3DD032497E31D0036515E /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A3DCF72497E3190036515E /* Context.swift */; };
+		F5A3DD052497E31D0036515E /* Secp256k1PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A3DCF92497E31A0036515E /* Secp256k1PublicKey.swift */; };
+		F5A3DD062497E31D0036515E /* PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A3DCFA2497E31A0036515E /* PublicKey.swift */; };
+		F5A3DD072497E31D0036515E /* Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A3DCFB2497E31A0036515E /* Encoding.swift */; };
+		F5A3DD082497E31D0036515E /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A3DCFC2497E31B0036515E /* Error.swift */; };
+		F5A3DD092497E31D0036515E /* Secp256k1Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A3DCFD2497E31B0036515E /* Secp256k1Context.swift */; };
+		F5A3DD0A2497E31D0036515E /* PrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A3DCFE2497E31B0036515E /* PrivateKey.swift */; };
+		F5A3DD0B2497E31D0036515E /* Signer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A3DCFF2497E31C0036515E /* Signer.swift */; };
+		F5A3DD0C2497E31D0036515E /* CryptoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A3DD002497E31C0036515E /* CryptoFactory.swift */; };
+		F5A3DD0D2497E31D0036515E /* Secp256k1PrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A3DD012497E31C0036515E /* Secp256k1PrivateKey.swift */; };
 		F5C8641C2494FDA400BAE28D /* drugstore.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C864182494FDA400BAE28D /* drugstore.pb.swift */; };
 		F5C8641D2494FDA400BAE28D /* doctor.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C864192494FDA400BAE28D /* doctor.pb.swift */; };
 		F5C8641E2494FDA400BAE28D /* patient.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C8641A2494FDA400BAE28D /* patient.pb.swift */; };
@@ -69,9 +78,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F5276019248F2E99009BA731 /* SawtoothSigning.framework in Embed Frameworks */,
-				F527601F248F2E99009BA731 /* CommonCrypto.framework in Embed Frameworks */,
-				F527601B248F2E99009BA731 /* secp256k1.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -80,13 +86,8 @@
 
 /* Begin PBXFileReference section */
 		76D459465758ABA3AFCFE936 /* Pods-BlockHeal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockHeal.release.xcconfig"; path = "Target Support Files/Pods-BlockHeal/Pods-BlockHeal.release.xcconfig"; sourceTree = "<group>"; };
-		88BCA6499A37A3EAF110232A /* Pods_BlockHeal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlockHeal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ED1B5AB936AB438E0CECD7A /* Pods-BlockHeal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockHeal.debug.xcconfig"; path = "Target Support Files/Pods-BlockHeal/Pods-BlockHeal.debug.xcconfig"; sourceTree = "<group>"; };
-		F527600D248F29AA009BA731 /* SawtoothSigning.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SawtoothSigning.framework; path = Carthage/Build/iOS/SawtoothSigning.framework; sourceTree = "<group>"; };
-		F5276013248F2B90009BA731 /* secp256k1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = secp256k1.framework; path = Carthage/Build/iOS/secp256k1.framework; sourceTree = "<group>"; };
-		F5276016248F2C3C009BA731 /* secp256k1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = secp256k1.framework; path = Carthage/Build/iOS/secp256k1.framework; sourceTree = "<group>"; };
-		F5276017248F2C3C009BA731 /* SawtoothSigning.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SawtoothSigning.framework; path = Carthage/Build/iOS/SawtoothSigning.framework; sourceTree = "<group>"; };
-		F527601D248F2E99009BA731 /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = Carthage/Build/iOS/CommonCrypto.framework; sourceTree = "<group>"; };
+		E2AD614EEA1C52B15A6BFAE1 /* Pods_BlockHeal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlockHeal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F541E5532473249E00A0D6FE /* BlockHeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockHeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F541E5562473249E00A0D6FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F541E5582473249E00A0D6FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,12 +97,27 @@
 		F541E562247324A000A0D6FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F541E564247324A000A0D6FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F576565F24779E4F006321FC /* UserAction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserAction.storyboard; sourceTree = "<group>"; };
+		F57ADA7E2499D9B2000C6633 /* Patient.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Patient.storyboard; sourceTree = "<group>"; };
+		F57ADA842499DFFA000C6633 /* PatientUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientUIViewController.swift; sourceTree = "<group>"; };
+		F57ADA862499E01F000C6633 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		F57ADA882499E14F000C6633 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F57ADA8A2499E246000C6633 /* StoringData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoringData.swift; sourceTree = "<group>"; };
 		F5A18459248EAAB600286EA2 /* TransactionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHelper.swift; sourceTree = "<group>"; };
 		F5A18472248EDDA600286EA2 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		F5A3DCC52497A3520036515E /* payload.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = payload.pb.swift; sourceTree = "<group>"; };
 		F5A3DCC82497B6B80036515E /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		F5A3DCD32497B83B0036515E /* batch.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = batch.pb.swift; sourceTree = "<group>"; };
 		F5A3DCD42497B83B0036515E /* transaction.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = transaction.pb.swift; sourceTree = "<group>"; };
+		F5A3DCF72497E3190036515E /* Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
+		F5A3DCF92497E31A0036515E /* Secp256k1PublicKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secp256k1PublicKey.swift; sourceTree = "<group>"; };
+		F5A3DCFA2497E31A0036515E /* PublicKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicKey.swift; sourceTree = "<group>"; };
+		F5A3DCFB2497E31A0036515E /* Encoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encoding.swift; sourceTree = "<group>"; };
+		F5A3DCFC2497E31B0036515E /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		F5A3DCFD2497E31B0036515E /* Secp256k1Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secp256k1Context.swift; sourceTree = "<group>"; };
+		F5A3DCFE2497E31B0036515E /* PrivateKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateKey.swift; sourceTree = "<group>"; };
+		F5A3DCFF2497E31C0036515E /* Signer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Signer.swift; sourceTree = "<group>"; };
+		F5A3DD002497E31C0036515E /* CryptoFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoFactory.swift; sourceTree = "<group>"; };
+		F5A3DD012497E31C0036515E /* Secp256k1PrivateKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secp256k1PrivateKey.swift; sourceTree = "<group>"; };
 		F5C864182494FDA400BAE28D /* drugstore.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = drugstore.pb.swift; sourceTree = "<group>"; };
 		F5C864192494FDA400BAE28D /* doctor.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = doctor.pb.swift; sourceTree = "<group>"; };
 		F5C8641A2494FDA400BAE28D /* patient.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = patient.pb.swift; sourceTree = "<group>"; };
@@ -142,10 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F527601E248F2E99009BA731 /* CommonCrypto.framework in Frameworks */,
-				F527601A248F2E99009BA731 /* secp256k1.framework in Frameworks */,
-				F5276020248F2E9B009BA731 /* Pods_BlockHeal.framework in Frameworks */,
-				F5276018248F2E99009BA731 /* SawtoothSigning.framework in Frameworks */,
+				ABEA160FED507C1DA0325CF5 /* Pods_BlockHeal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,10 +168,7 @@
 		16AC1358D5AAF396E4ADF878 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F527601D248F2E99009BA731 /* CommonCrypto.framework */,
-				F5276013248F2B90009BA731 /* secp256k1.framework */,
-				F527600D248F29AA009BA731 /* SawtoothSigning.framework */,
-				88BCA6499A37A3EAF110232A /* Pods_BlockHeal.framework */,
+				E2AD614EEA1C52B15A6BFAE1 /* Pods_BlockHeal.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -175,8 +185,6 @@
 		F541E54A2473249E00A0D6FE = {
 			isa = PBXGroup;
 			children = (
-				F5276017248F2C3C009BA731 /* SawtoothSigning.framework */,
-				F5276016248F2C3C009BA731 /* secp256k1.framework */,
 				F541E5552473249E00A0D6FE /* BlockHeal */,
 				F541E5542473249E00A0D6FE /* Products */,
 				291074E611848750CE15A351 /* Pods */,
@@ -195,6 +203,7 @@
 		F541E5552473249E00A0D6FE /* BlockHeal */ = {
 			isa = PBXGroup;
 			children = (
+				F5A3DCF62497E30B0036515E /* Swatooth */,
 				F5E30A8A2473A65E00C347D4 /* Model */,
 				F5E30A852473A0E300C347D4 /* Tools */,
 				F5E30A4C2473A04300C347D4 /* Network */,
@@ -208,12 +217,58 @@
 			path = BlockHeal;
 			sourceTree = "<group>";
 		};
+		F57ADA802499DF63000C6633 /* Patient */ = {
+			isa = PBXGroup;
+			children = (
+				F57ADA842499DFFA000C6633 /* PatientUIViewController.swift */,
+			);
+			path = Patient;
+			sourceTree = "<group>";
+		};
+		F57ADA812499DF6A000C6633 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		F57ADA822499DF71000C6633 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		F57ADA832499DF77000C6633 /* Doctor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Doctor;
+			sourceTree = "<group>";
+		};
 		F5A3DCCA2497B6BF0036515E /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				F5A3DCC82497B6B80036515E /* Transaction.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		F5A3DCF62497E30B0036515E /* Swatooth */ = {
+			isa = PBXGroup;
+			children = (
+				F5A3DCF72497E3190036515E /* Context.swift */,
+				F5A3DD002497E31C0036515E /* CryptoFactory.swift */,
+				F5A3DCFB2497E31A0036515E /* Encoding.swift */,
+				F5A3DCFC2497E31B0036515E /* Error.swift */,
+				F5A3DCFE2497E31B0036515E /* PrivateKey.swift */,
+				F5A3DCFA2497E31A0036515E /* PublicKey.swift */,
+				F5A3DCFD2497E31B0036515E /* Secp256k1Context.swift */,
+				F5A3DD012497E31C0036515E /* Secp256k1PrivateKey.swift */,
+				F5A3DCF92497E31A0036515E /* Secp256k1PublicKey.swift */,
+				F5A3DCFF2497E31C0036515E /* Signer.swift */,
+			);
+			path = Swatooth;
 			sourceTree = "<group>";
 		};
 		F5E30A4C2473A04300C347D4 /* Network */ = {
@@ -267,6 +322,9 @@
 		F5E30A852473A0E300C347D4 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				F57ADA862499E01F000C6633 /* BaseViewController.swift */,
+				F57ADA882499E14F000C6633 /* NetworkManager.swift */,
+				F57ADA8A2499E246000C6633 /* StoringData.swift */,
 				F5E30A552473A09500C347D4 /* Helper */,
 				F5E30A822473A0DD00C347D4 /* Log.swift */,
 				F5E30A882473A45200C347D4 /* StoryboardName.swift */,
@@ -281,6 +339,10 @@
 			isa = PBXGroup;
 			children = (
 				F541E55A2473249E00A0D6FE /* ViewController.swift */,
+				F57ADA822499DF71000C6633 /* Login */,
+				F57ADA812499DF6A000C6633 /* Register */,
+				F57ADA832499DF77000C6633 /* Doctor */,
+				F57ADA802499DF63000C6633 /* Patient */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -291,6 +353,7 @@
 				F541E561247324A000A0D6FE /* LaunchScreen.storyboard */,
 				F541E55C2473249E00A0D6FE /* Main.storyboard */,
 				F576565F24779E4F006321FC /* UserAction.storyboard */,
+				F57ADA7E2499D9B2000C6633 /* Patient.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -338,8 +401,6 @@
 			dependencies = (
 			);
 			name = BlockHeal;
-			packageProductDependencies = (
-			);
 			productName = BlockHeal;
 			productReference = F541E5532473249E00A0D6FE /* BlockHeal.app */;
 			productType = "com.apple.product-type.application";
@@ -383,6 +444,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F541E563247324A000A0D6FE /* LaunchScreen.storyboard in Resources */,
+				F57ADA7F2499D9B2000C6633 /* Patient.storyboard in Resources */,
 				F576566024779E4F006321FC /* UserAction.storyboard in Resources */,
 				F541E560247324A000A0D6FE /* Assets.xcassets in Resources */,
 				F541E55E2473249E00A0D6FE /* Main.storyboard in Resources */,
@@ -463,7 +525,9 @@
 				F5E30A702473A0A900C347D4 /* UIApplication.swift in Sources */,
 				F5A3DCD62497B83B0036515E /* transaction.pb.swift in Sources */,
 				F5E30A7A2473A0A900C347D4 /* UIColor.swift in Sources */,
+				F57ADA872499E01F000C6633 /* BaseViewController.swift in Sources */,
 				F5E30A7C2473A0A900C347D4 /* UICollectionViewCell.swift in Sources */,
+				F5A3DD0A2497E31D0036515E /* PrivateKey.swift in Sources */,
 				F5E30A7E2473A0A900C347D4 /* Date.swift in Sources */,
 				F5E30A6F2473A0A900C347D4 /* UILabel.swift in Sources */,
 				F5A3DCC62497A3520036515E /* payload.pb.swift in Sources */,
@@ -481,25 +545,37 @@
 				F5E30A6D2473A0A900C347D4 /* UIImage.swift in Sources */,
 				F5E30A7F2473A0A900C347D4 /* Collection.swift in Sources */,
 				F5E30A712473A0A900C347D4 /* UIFont.swift in Sources */,
+				F57ADA852499DFFA000C6633 /* PatientUIViewController.swift in Sources */,
 				F5E30A482473A03800C347D4 /* NetworkConstants.swift in Sources */,
 				F541E5592473249E00A0D6FE /* SceneDelegate.swift in Sources */,
+				F57ADA8B2499E246000C6633 /* StoringData.swift in Sources */,
+				F5A3DD062497E31D0036515E /* PublicKey.swift in Sources */,
+				F5A3DD092497E31D0036515E /* Secp256k1Context.swift in Sources */,
+				F5A3DD0D2497E31D0036515E /* Secp256k1PrivateKey.swift in Sources */,
+				F5A3DD0C2497E31D0036515E /* CryptoFactory.swift in Sources */,
 				F5E30A842473A0DD00C347D4 /* Log.swift in Sources */,
 				F5E30A532473A08E00C347D4 /* UserDefaultsHelper.swift in Sources */,
+				F5A3DD032497E31D0036515E /* Context.swift in Sources */,
 				F5E30A512473A08E00C347D4 /* DialogueHelper.swift in Sources */,
+				F5A3DD072497E31D0036515E /* Encoding.swift in Sources */,
+				F57ADA892499E14F000C6633 /* NetworkManager.swift in Sources */,
 				F5E30A6C2473A0A900C347D4 /* UIView.swift in Sources */,
 				F5E30A542473A08E00C347D4 /* SegueHelper.swift in Sources */,
 				F5E30A772473A0A900C347D4 /* RectangularDashedView.swift in Sources */,
 				F5E30A892473A45200C347D4 /* StoryboardName.swift in Sources */,
 				F5E30A762473A0A900C347D4 /* Numeric.swift in Sources */,
+				F5A3DD082497E31D0036515E /* Error.swift in Sources */,
 				F5A3DCD52497B83B0036515E /* batch.pb.swift in Sources */,
 				F5E30A832473A0DD00C347D4 /* ValueKeeper.swift in Sources */,
 				F5E30A4B2473A03800C347D4 /* API.swift in Sources */,
 				F5E30A732473A0A900C347D4 /* String.swift in Sources */,
 				F5C864212494FDDC00BAE28D /* prescript.pb.swift in Sources */,
 				F5E30A722473A0A900C347D4 /* UISegmentedControl.swift in Sources */,
+				F5A3DD0B2497E31D0036515E /* Signer.swift in Sources */,
 				F5C8641C2494FDA400BAE28D /* drugstore.pb.swift in Sources */,
 				F5C8641E2494FDA400BAE28D /* patient.pb.swift in Sources */,
 				F5E30A472473A03800C347D4 /* APIConfiguration.swift in Sources */,
+				F5A3DD052497E31D0036515E /* Secp256k1PublicKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,7 +722,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = AJLMAG95WU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -673,7 +749,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = AJLMAG95WU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

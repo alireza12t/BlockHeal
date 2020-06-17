@@ -9,17 +9,10 @@
 import Foundation
 import os
 import CommonCrypto
-import SawtoothSigning
 import SwiftProtobuf
 import SwiftyJSON
 import SwiftCBOR
 
-enum UserDefaultKeys:String {
-    case Token
-    case IsFaceIdEnabled
-    case PrivateKey
-    case PublicKey
-}
 
 enum Role: String{
     case Doctor
@@ -122,12 +115,12 @@ class TransactionHelper {
                 Log.e("Unable to serialize data")
             }
             transaction.payload = Data(bytes: encodedPayload, count: encodedPayload.encode().count)
-            
+            return try? transaction.jsonString().data(using: .utf8)
             
             //MARK: Encode the Transaction(s)
-            do {
-                let txn_bytes = try transaction.serializedData()
-                return txn_bytes
+//            do {
+//                let txn_bytes = try transaction.serializedData()
+//                return txn_bytes
                 
 //                //MARK: Create the BatchHeader
 //
@@ -167,10 +160,10 @@ class TransactionHelper {
 //                } catch {
 //                    Log.e("Unable to serialize data")
 //                }
-            } catch {
-                Log.e("Unable to serialize data")
-            }
-            
+//            } catch {
+//                Log.e("Unable to serialize data")
+//            }
+//
         } catch {
             Log.e("failed to Create transactionHeader \(error)")
         }
@@ -199,31 +192,3 @@ class TransactionHelper {
     
 }
 
-
-
-class StoringData {
-    
-    static var isFaceIdEnabled:Bool {
-        get{
-            return UserDefaults.standard.bool(forKey: UserDefaultKeys.IsFaceIdEnabled.rawValue)
-        }
-        set (newValue) {
-            UserDefaults.standard.setValue(newValue, forKey: UserDefaultKeys.IsFaceIdEnabled.rawValue)
-        }
-    }
-    
-    static var token: String {
-        get{
-            return UserDefaults.standard.string(forKey: UserDefaultKeys.Token.rawValue) ?? ""
-        }
-        set (newValue) {
-            UserDefaults.standard.setValue(newValue, forKey: UserDefaultKeys.Token.rawValue)
-        }
-    }
-    
-    class func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
-    }
-    
-}

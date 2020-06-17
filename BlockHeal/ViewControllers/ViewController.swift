@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SawtoothSigning
 import RxSwift
 import Alamofire
 
@@ -23,15 +22,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
+        label.text = "Empty"
+        titleLabel.text = ""
         
         
         let sendPrescriptTransactiion = TransactionHelper.sendPrescript(recieverPublicKeyHex: "jdjhjdhjhdhjdjhdhj", precscript: "{ 'X' : 12, 'Y' : 20 }", index: "1")
         let createAccountTransaction = TransactionHelper.createAccount(role: .Doctor)
         let createAccountTransaction2 = TransactionHelper.createAccount(role: .Patient)
 
-        var request: URLRequest = URLRequest(url: URL(string: "192.168.1.5:3001/blockchain/transactions")!)
+        var request: URLRequest = URLRequest(url: URL(string: "http://192.168.1.5:3001/blockchain/transactions")!)
         request.httpBody = createAccountTransaction
         request.httpMethod = HTTPMethod.post.rawValue
         

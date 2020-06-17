@@ -2,7 +2,7 @@
 import UIKit
 
 enum StoryboardName: String {
-    case Main, UserAction
+    case Main, UserAction, Patient
 
 
     var instance: UIStoryboard {

@@ -21,5 +21,11 @@ extension UIColor{
     static let blueBackground = UIColor(red: 211/255, green: 238/255, blue: 243/255, alpha: 1)
     static let linenBackground = UIColor(red: 249/255, green: 242/255, blue: 229/255, alpha: 1)
     static let detailAttributedColor = UIColor.darkGray
+    
+    
+    static let purpleBrown = UIColor(displayP3Red: 65/255, green: 41/255, blue: 57/255, alpha: 1)
+    static let brandPink = UIColor(displayP3Red: 85/255, green: 90/255, blue: 184/255, alpha: 1)
+    static let lightPeriwinkle = UIColor(displayP3Red: 201/255, green: 205/255, blue: 237/255, alpha: 1)
+    static let dusk = UIColor(displayP3Red: 63/255, green: 61/255, blue: 86/255, alpha: 1)
 }
 

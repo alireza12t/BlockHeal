@@ -14,6 +14,11 @@ target 'BlockHeal' do
 	pod 'SwiftyBeaver'
 	pod 'SwiftProtobuf', '~> 1.0'
 	pod 'SwiftyJSON'
+	pod 'secp256k1.swift'
 	pod 'SwiftCBOR'
+	pod 'BRYXBanner'
+  	pod 'ReachabilitySwift'
+
+
 end
 

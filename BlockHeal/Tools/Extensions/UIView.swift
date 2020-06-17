@@ -30,30 +30,13 @@ extension UIView {
         layer.cornerRadius = layer.frame.height / 2
         layer.masksToBounds = true
     }
-
-//    func makeTopRound(width: Int = 5, height: Int = 5) {
-//        Log.i()
-//
-//        let maskPath = UIBezierPath(roundedRect: bounds,
-//            byRoundingCorners: [.topLeft, .topRight],
-//            cornerRadii: CGSize(width: width, height: height))
-//        let maskLayer = CAShapeLayer()
-//        maskLayer.frame = self.frame
-//        maskLayer.path = maskPath.cgPath
-//        layer.mask = maskLayer
-//    }
     
-    func makeBottomRound(width: Int = 5, height: Int = 5) {
-        Log.i()
-
-        let maskPath = UIBezierPath(roundedRect: bounds,
-            byRoundingCorners: [.bottomLeft, .bottomRight],
-            cornerRadii: CGSize(width: width, height: height))
-        let maskLayer = CAShapeLayer()
-        maskLayer.frame = bounds
-        maskLayer.path = maskPath.cgPath
-        layer.mask = maskLayer
-    }
+    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+         let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+         let mask = CAShapeLayer()
+         mask.path = path.cgPath
+         layer.mask = mask
+     }
 
     func addTopBorder(borderColor: UIColor, borderHeight: CGFloat) {
         let border = CALayer()
