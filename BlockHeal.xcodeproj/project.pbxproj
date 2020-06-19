@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		ABEA160FED507C1DA0325CF5 /* Pods_BlockHeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2AD614EEA1C52B15A6BFAE1 /* Pods_BlockHeal.framework */; };
+		F51ACA76249C84AF00A6A5A5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51ACA75249C84AF00A6A5A5 /* MainViewController.swift */; };
+		F51ACA78249C84B700A6A5A5 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51ACA77249C84B700A6A5A5 /* SplashViewController.swift */; };
+		F51ACA7A249C87F200A6A5A5 /* PersonTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51ACA79249C87F200A6A5A5 /* PersonTypeTableViewCell.swift */; };
+		F51ACA81249CAE1D00A6A5A5 /* TableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51ACA7C249CABE800A6A5A5 /* TableHeaderView.swift */; };
+		F51ACA84249CB49200A6A5A5 /* RequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51ACA83249CB49200A6A5A5 /* RequestTableViewCell.swift */; };
+		F51ACA85249CBF1300A6A5A5 /* tableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51ACA7D249CABE800A6A5A5 /* tableHeaderView.xib */; };
 		F52CCF23248F13A400DE07DE /* TransactionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A18459248EAAB600286EA2 /* TransactionHelper.swift */; };
 		F541E5572473249E00A0D6FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F541E5562473249E00A0D6FE /* AppDelegate.swift */; };
 		F541E5592473249E00A0D6FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F541E5582473249E00A0D6FE /* SceneDelegate.swift */; };
@@ -17,7 +23,6 @@
 		F541E563247324A000A0D6FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F541E561247324A000A0D6FE /* LaunchScreen.storyboard */; };
 		F576566024779E4F006321FC /* UserAction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F576565F24779E4F006321FC /* UserAction.storyboard */; };
 		F57ADA7F2499D9B2000C6633 /* Patient.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F57ADA7E2499D9B2000C6633 /* Patient.storyboard */; };
-		F57ADA852499DFFA000C6633 /* PatientUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57ADA842499DFFA000C6633 /* PatientUIViewController.swift */; };
 		F57ADA872499E01F000C6633 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57ADA862499E01F000C6633 /* BaseViewController.swift */; };
 		F57ADA892499E14F000C6633 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57ADA882499E14F000C6633 /* NetworkManager.swift */; };
 		F57ADA8B2499E246000C6633 /* StoringData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57ADA8A2499E246000C6633 /* StoringData.swift */; };
@@ -69,6 +74,15 @@
 		F5E30A832473A0DD00C347D4 /* ValueKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E30A812473A0DD00C347D4 /* ValueKeeper.swift */; };
 		F5E30A842473A0DD00C347D4 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E30A822473A0DD00C347D4 /* Log.swift */; };
 		F5E30A892473A45200C347D4 /* StoryboardName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E30A882473A45200C347D4 /* StoryboardName.swift */; };
+		F5F8D65C249B5D5B0048AAA5 /* PrescriptItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F8D65B249B5D5B0048AAA5 /* PrescriptItemTableViewCell.swift */; };
+		F5F8D65E249B5D6C0048AAA5 /* PrescriptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F8D65D249B5D6C0048AAA5 /* PrescriptTableViewCell.swift */; };
+		F5F8D660249B5ECC0048AAA5 /* PatientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F8D65F249B5ECC0048AAA5 /* PatientTableViewCell.swift */; };
+		F5F8D661249B63C90048AAA5 /* PatientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57ADA842499DFFA000C6633 /* PatientViewController.swift */; };
+		F5F8D663249B63F50048AAA5 /* PrescriptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F8D662249B63F50048AAA5 /* PrescriptionsViewController.swift */; };
+		F5F8D665249B64010048AAA5 /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F8D664249B64010048AAA5 /* RequestsViewController.swift */; };
+		F5F8D667249B640F0048AAA5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F8D666249B640F0048AAA5 /* ProfileViewController.swift */; };
+		F5F8D669249B64230048AAA5 /* SendPrescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F8D668249B64230048AAA5 /* SendPrescriptionViewController.swift */; };
+		F5F8D66B249B644D0048AAA5 /* MedicalRecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F8D66A249B644D0048AAA5 /* MedicalRecordsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -88,6 +102,12 @@
 		76D459465758ABA3AFCFE936 /* Pods-BlockHeal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockHeal.release.xcconfig"; path = "Target Support Files/Pods-BlockHeal/Pods-BlockHeal.release.xcconfig"; sourceTree = "<group>"; };
 		9ED1B5AB936AB438E0CECD7A /* Pods-BlockHeal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockHeal.debug.xcconfig"; path = "Target Support Files/Pods-BlockHeal/Pods-BlockHeal.debug.xcconfig"; sourceTree = "<group>"; };
 		E2AD614EEA1C52B15A6BFAE1 /* Pods_BlockHeal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlockHeal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F51ACA75249C84AF00A6A5A5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F51ACA77249C84B700A6A5A5 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		F51ACA79249C87F200A6A5A5 /* PersonTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTypeTableViewCell.swift; sourceTree = "<group>"; };
+		F51ACA7C249CABE800A6A5A5 /* TableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderView.swift; sourceTree = "<group>"; };
+		F51ACA7D249CABE800A6A5A5 /* tableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = tableHeaderView.xib; sourceTree = "<group>"; };
+		F51ACA83249CB49200A6A5A5 /* RequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTableViewCell.swift; sourceTree = "<group>"; };
 		F541E5532473249E00A0D6FE /* BlockHeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockHeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F541E5562473249E00A0D6FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F541E5582473249E00A0D6FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,7 +118,7 @@
 		F541E564247324A000A0D6FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F576565F24779E4F006321FC /* UserAction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserAction.storyboard; sourceTree = "<group>"; };
 		F57ADA7E2499D9B2000C6633 /* Patient.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Patient.storyboard; sourceTree = "<group>"; };
-		F57ADA842499DFFA000C6633 /* PatientUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientUIViewController.swift; sourceTree = "<group>"; };
+		F57ADA842499DFFA000C6633 /* PatientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientViewController.swift; sourceTree = "<group>"; };
 		F57ADA862499E01F000C6633 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		F57ADA882499E14F000C6633 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F57ADA8A2499E246000C6633 /* StoringData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoringData.swift; sourceTree = "<group>"; };
@@ -151,6 +171,14 @@
 		F5E30A812473A0DD00C347D4 /* ValueKeeper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueKeeper.swift; sourceTree = "<group>"; };
 		F5E30A822473A0DD00C347D4 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		F5E30A882473A45200C347D4 /* StoryboardName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardName.swift; sourceTree = "<group>"; };
+		F5F8D65B249B5D5B0048AAA5 /* PrescriptItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptItemTableViewCell.swift; sourceTree = "<group>"; };
+		F5F8D65D249B5D6C0048AAA5 /* PrescriptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptTableViewCell.swift; sourceTree = "<group>"; };
+		F5F8D65F249B5ECC0048AAA5 /* PatientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableViewCell.swift; sourceTree = "<group>"; };
+		F5F8D662249B63F50048AAA5 /* PrescriptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionsViewController.swift; sourceTree = "<group>"; };
+		F5F8D664249B64010048AAA5 /* RequestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
+		F5F8D666249B640F0048AAA5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F5F8D668249B64230048AAA5 /* SendPrescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPrescriptionViewController.swift; sourceTree = "<group>"; };
+		F5F8D66A249B644D0048AAA5 /* MedicalRecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecordsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +210,23 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F51ACA7B249CABB000A6A5A5 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				F51ACA80249CABF200A6A5A5 /* Table Header View */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		F51ACA80249CABF200A6A5A5 /* Table Header View */ = {
+			isa = PBXGroup;
+			children = (
+				F51ACA7C249CABE800A6A5A5 /* TableHeaderView.swift */,
+				F51ACA7D249CABE800A6A5A5 /* tableHeaderView.xib */,
+			);
+			path = "Table Header View";
+			sourceTree = "<group>";
+		};
 		F541E54A2473249E00A0D6FE = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +251,8 @@
 				F5A3DCF62497E30B0036515E /* Swatooth */,
 				F5E30A8A2473A65E00C347D4 /* Model */,
 				F5E30A852473A0E300C347D4 /* Tools */,
+				F51ACA7B249CABB000A6A5A5 /* Custom Views */,
+				F5F8D65A249B5D320048AAA5 /* Cells */,
 				F5E30A4C2473A04300C347D4 /* Network */,
 				F541E5582473249E00A0D6FE /* SceneDelegate.swift */,
 				F5E30A862473A3F400C347D4 /* ViewControllers */,
@@ -220,7 +267,12 @@
 		F57ADA802499DF63000C6633 /* Patient */ = {
 			isa = PBXGroup;
 			children = (
-				F57ADA842499DFFA000C6633 /* PatientUIViewController.swift */,
+				F57ADA842499DFFA000C6633 /* PatientViewController.swift */,
+				F5F8D666249B640F0048AAA5 /* ProfileViewController.swift */,
+				F5F8D66A249B644D0048AAA5 /* MedicalRecordsViewController.swift */,
+				F5F8D664249B64010048AAA5 /* RequestsViewController.swift */,
+				F5F8D662249B63F50048AAA5 /* PrescriptionsViewController.swift */,
+				F5F8D668249B64230048AAA5 /* SendPrescriptionViewController.swift */,
 			);
 			path = Patient;
 			sourceTree = "<group>";
@@ -339,6 +391,8 @@
 			isa = PBXGroup;
 			children = (
 				F541E55A2473249E00A0D6FE /* ViewController.swift */,
+				F51ACA77249C84B700A6A5A5 /* SplashViewController.swift */,
+				F51ACA75249C84AF00A6A5A5 /* MainViewController.swift */,
 				F57ADA822499DF71000C6633 /* Login */,
 				F57ADA812499DF6A000C6633 /* Register */,
 				F57ADA832499DF77000C6633 /* Doctor */,
@@ -379,6 +433,18 @@
 				F5A3DCC52497A3520036515E /* payload.pb.swift */,
 			);
 			path = Protos;
+			sourceTree = "<group>";
+		};
+		F5F8D65A249B5D320048AAA5 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F5F8D65B249B5D5B0048AAA5 /* PrescriptItemTableViewCell.swift */,
+				F5F8D65D249B5D6C0048AAA5 /* PrescriptTableViewCell.swift */,
+				F5F8D65F249B5ECC0048AAA5 /* PatientTableViewCell.swift */,
+				F51ACA79249C87F200A6A5A5 /* PersonTypeTableViewCell.swift */,
+				F51ACA83249CB49200A6A5A5 /* RequestTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -443,6 +509,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F51ACA85249CBF1300A6A5A5 /* tableHeaderView.xib in Resources */,
 				F541E563247324A000A0D6FE /* LaunchScreen.storyboard in Resources */,
 				F57ADA7F2499D9B2000C6633 /* Patient.storyboard in Resources */,
 				F576566024779E4F006321FC /* UserAction.storyboard in Resources */,
@@ -520,6 +587,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F51ACA81249CAE1D00A6A5A5 /* TableHeaderView.swift in Sources */,
+				F5F8D661249B63C90048AAA5 /* PatientViewController.swift in Sources */,
 				F52CCF23248F13A400DE07DE /* TransactionHelper.swift in Sources */,
 				F5C8641D2494FDA400BAE28D /* doctor.pb.swift in Sources */,
 				F5E30A702473A0A900C347D4 /* UIApplication.swift in Sources */,
@@ -531,23 +600,29 @@
 				F5E30A7E2473A0A900C347D4 /* Date.swift in Sources */,
 				F5E30A6F2473A0A900C347D4 /* UILabel.swift in Sources */,
 				F5A3DCC62497A3520036515E /* payload.pb.swift in Sources */,
+				F5F8D667249B640F0048AAA5 /* ProfileViewController.swift in Sources */,
 				F5E30A792473A0A900C347D4 /* UIViewController.swift in Sources */,
+				F51ACA76249C84AF00A6A5A5 /* MainViewController.swift in Sources */,
 				F541E55B2473249E00A0D6FE /* ViewController.swift in Sources */,
 				F541E5572473249E00A0D6FE /* AppDelegate.swift in Sources */,
 				F5E30A742473A0A900C347D4 /* UITableViewCell.swift in Sources */,
+				F51ACA7A249C87F200A6A5A5 /* PersonTypeTableViewCell.swift in Sources */,
 				F5E30A6E2473A0A900C347D4 /* UIButton.swift in Sources */,
 				F5A18473248EDDA600286EA2 /* Keychain.swift in Sources */,
 				F5A3DCC92497B6B80036515E /* Transaction.swift in Sources */,
+				F51ACA78249C84B700A6A5A5 /* SplashViewController.swift in Sources */,
 				F5E30A522473A08E00C347D4 /* InteractionPanToClose.swift in Sources */,
+				F5F8D669249B64230048AAA5 /* SendPrescriptionViewController.swift in Sources */,
+				F5F8D660249B5ECC0048AAA5 /* PatientTableViewCell.swift in Sources */,
 				F5E30A7B2473A0A900C347D4 /* Formatter.swift in Sources */,
 				F5E30A492473A03800C347D4 /* NetworkInterceptor.swift in Sources */,
 				F5E30A4A2473A03800C347D4 /* URLs.swift in Sources */,
 				F5E30A6D2473A0A900C347D4 /* UIImage.swift in Sources */,
 				F5E30A7F2473A0A900C347D4 /* Collection.swift in Sources */,
 				F5E30A712473A0A900C347D4 /* UIFont.swift in Sources */,
-				F57ADA852499DFFA000C6633 /* PatientUIViewController.swift in Sources */,
 				F5E30A482473A03800C347D4 /* NetworkConstants.swift in Sources */,
 				F541E5592473249E00A0D6FE /* SceneDelegate.swift in Sources */,
+				F5F8D65E249B5D6C0048AAA5 /* PrescriptTableViewCell.swift in Sources */,
 				F57ADA8B2499E246000C6633 /* StoringData.swift in Sources */,
 				F5A3DD062497E31D0036515E /* PublicKey.swift in Sources */,
 				F5A3DD092497E31D0036515E /* Secp256k1Context.swift in Sources */,
@@ -555,15 +630,19 @@
 				F5A3DD0C2497E31D0036515E /* CryptoFactory.swift in Sources */,
 				F5E30A842473A0DD00C347D4 /* Log.swift in Sources */,
 				F5E30A532473A08E00C347D4 /* UserDefaultsHelper.swift in Sources */,
+				F51ACA84249CB49200A6A5A5 /* RequestTableViewCell.swift in Sources */,
 				F5A3DD032497E31D0036515E /* Context.swift in Sources */,
 				F5E30A512473A08E00C347D4 /* DialogueHelper.swift in Sources */,
 				F5A3DD072497E31D0036515E /* Encoding.swift in Sources */,
+				F5F8D663249B63F50048AAA5 /* PrescriptionsViewController.swift in Sources */,
 				F57ADA892499E14F000C6633 /* NetworkManager.swift in Sources */,
 				F5E30A6C2473A0A900C347D4 /* UIView.swift in Sources */,
 				F5E30A542473A08E00C347D4 /* SegueHelper.swift in Sources */,
 				F5E30A772473A0A900C347D4 /* RectangularDashedView.swift in Sources */,
 				F5E30A892473A45200C347D4 /* StoryboardName.swift in Sources */,
 				F5E30A762473A0A900C347D4 /* Numeric.swift in Sources */,
+				F5F8D66B249B644D0048AAA5 /* MedicalRecordsViewController.swift in Sources */,
+				F5F8D665249B64010048AAA5 /* RequestsViewController.swift in Sources */,
 				F5A3DD082497E31D0036515E /* Error.swift in Sources */,
 				F5A3DCD52497B83B0036515E /* batch.pb.swift in Sources */,
 				F5E30A832473A0DD00C347D4 /* ValueKeeper.swift in Sources */,
@@ -572,6 +651,7 @@
 				F5C864212494FDDC00BAE28D /* prescript.pb.swift in Sources */,
 				F5E30A722473A0A900C347D4 /* UISegmentedControl.swift in Sources */,
 				F5A3DD0B2497E31D0036515E /* Signer.swift in Sources */,
+				F5F8D65C249B5D5B0048AAA5 /* PrescriptItemTableViewCell.swift in Sources */,
 				F5C8641C2494FDA400BAE28D /* drugstore.pb.swift in Sources */,
 				F5C8641E2494FDA400BAE28D /* patient.pb.swift in Sources */,
 				F5E30A472473A03800C347D4 /* APIConfiguration.swift in Sources */,
