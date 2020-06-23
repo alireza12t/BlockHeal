@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,30 +17,196 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PDj-1j-Jki">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="324.66666666666669"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor" translatesAutoresizingMaskIntoConstraints="NO" id="PDj-1j-Jki">
+                                <rect key="frame" x="0.0" y="44" width="375" height="324.66666666666669"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xx2-tB-YMB" customClass="DesignableView" customModule="Spring">
-                                <rect key="frame" x="0.0" y="452" width="375" height="400"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ea3-bU-yRb">
+                                <rect key="frame" x="0.0" y="270.66666666666669" width="375" height="541.33333333333326"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="90Q-2g-XPT">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="612"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OQ4-0i-3m2" customClass="DesignableView" customModule="Spring">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="612"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ثبت‌نام" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cu-QV-HWk">
+                                                        <rect key="frame" x="152.66666666666666" y="50" width="70" height="25"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="25" id="caO-PU-tAC"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QC5-35-0tm" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                        <rect key="frame" x="35" y="125" width="305" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="dAO-96-nei"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                                <real key="value" value="0.0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="errorMessage" value="ایمیل وارد شده معتبر نیست"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="پست الکترونیک"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="پست الکترونیک"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="haO-vJ-gOW" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                        <rect key="frame" x="35" y="190" width="305" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="5kp-uq-lPv"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                                <real key="value" value="0.0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="errorMessage" value="ایمیل وارد شده معتبر نیست"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="پست الکترونیک"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="پست الکترونیک"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b2e-KN-DPK" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                        <rect key="frame" x="35" y="254.99999999999994" width="305" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="dcV-nX-bK1"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                                <real key="value" value="0.0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="errorMessage" value="ایمیل وارد شده معتبر نیست"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="پست الکترونیک"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="پست الکترونیک"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lYE-az-j2E" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                        <rect key="frame" x="35" y="319.99999999999994" width="305" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="jZS-0m-wbU"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                                <real key="value" value="0.0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="errorMessage" value="ایمیل وارد شده معتبر نیست"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="پست الکترونیک"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="پست الکترونیک"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YtJ-HN-6vS" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                        <rect key="frame" x="35" y="384.99999999999994" width="305" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="Jiv-jA-Uzi"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                                <real key="value" value="0.0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="errorMessage" value="ایمیل وارد شده معتبر نیست"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="پست الکترونیک"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="پست الکترونیک"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQk-G0-kXQ" customClass="DesignableButton" customModule="Spring">
+                                                        <rect key="frame" x="62.666666666666657" y="479.99999999999994" width="249.99999999999997" height="50.000000000000057"/>
+                                                        <color key="backgroundColor" name="brandOrange"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="250" id="HBd-s5-kbA"/>
+                                                            <constraint firstAttribute="height" constant="50" id="vP4-xM-YyA"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <state key="normal" title="ورود">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="25"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1I-fz-ni2">
+                                                        <rect key="frame" x="123" y="540" width="129" height="27"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                        <state key="normal" title="رمز عبور را فراموش کردید؟">
+                                                            <color key="titleColor" name="dusk"/>
+                                                        </state>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="lYE-az-j2E" secondAttribute="trailing" constant="35" id="0l5-pi-xy8"/>
+                                                    <constraint firstItem="b2e-KN-DPK" firstAttribute="top" secondItem="haO-vJ-gOW" secondAttribute="bottom" constant="15" id="4uf-Sa-a75"/>
+                                                    <constraint firstItem="p1I-fz-ni2" firstAttribute="centerX" secondItem="OQk-G0-kXQ" secondAttribute="centerX" id="7AB-bp-nun"/>
+                                                    <constraint firstItem="5cu-QV-HWk" firstAttribute="top" secondItem="OQ4-0i-3m2" secondAttribute="top" constant="50" id="DBB-Pb-UuZ"/>
+                                                    <constraint firstItem="p1I-fz-ni2" firstAttribute="top" secondItem="OQk-G0-kXQ" secondAttribute="bottom" constant="10" id="Eli-iY-bmf"/>
+                                                    <constraint firstItem="lYE-az-j2E" firstAttribute="leading" secondItem="OQ4-0i-3m2" secondAttribute="leading" constant="35" id="I9H-X5-G4Z"/>
+                                                    <constraint firstAttribute="bottom" secondItem="p1I-fz-ni2" secondAttribute="bottom" constant="45" id="J7x-1w-fww"/>
+                                                    <constraint firstItem="YtJ-HN-6vS" firstAttribute="top" secondItem="lYE-az-j2E" secondAttribute="bottom" constant="15" id="JED-La-xXM"/>
+                                                    <constraint firstItem="QC5-35-0tm" firstAttribute="leading" secondItem="OQ4-0i-3m2" secondAttribute="leading" constant="35" id="Jlw-Yx-gHD"/>
+                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5cu-QV-HWk" secondAttribute="trailing" constant="10" id="QjK-4y-24L"/>
+                                                    <constraint firstAttribute="trailing" secondItem="YtJ-HN-6vS" secondAttribute="trailing" constant="35" id="SAl-t7-NNQ"/>
+                                                    <constraint firstItem="haO-vJ-gOW" firstAttribute="top" secondItem="QC5-35-0tm" secondAttribute="bottom" constant="15" id="Vp3-fy-Z3D"/>
+                                                    <constraint firstItem="OQk-G0-kXQ" firstAttribute="top" secondItem="YtJ-HN-6vS" secondAttribute="bottom" constant="45" id="ar8-J8-BTJ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="haO-vJ-gOW" secondAttribute="trailing" constant="35" id="c7O-CR-Bpf"/>
+                                                    <constraint firstItem="5cu-QV-HWk" firstAttribute="centerX" secondItem="OQ4-0i-3m2" secondAttribute="centerX" id="cyl-3V-xFa"/>
+                                                    <constraint firstItem="OQk-G0-kXQ" firstAttribute="centerX" secondItem="OQ4-0i-3m2" secondAttribute="centerX" id="dDA-nW-6wr"/>
+                                                    <constraint firstAttribute="trailing" secondItem="b2e-KN-DPK" secondAttribute="trailing" constant="35" id="hP7-ox-XEO"/>
+                                                    <constraint firstItem="QC5-35-0tm" firstAttribute="top" secondItem="5cu-QV-HWk" secondAttribute="bottom" constant="50" id="oj2-7X-zTh"/>
+                                                    <constraint firstAttribute="trailing" secondItem="QC5-35-0tm" secondAttribute="trailing" constant="35" id="qGy-67-VZ0"/>
+                                                    <constraint firstItem="haO-vJ-gOW" firstAttribute="leading" secondItem="OQ4-0i-3m2" secondAttribute="leading" constant="35" id="r3X-V2-coa"/>
+                                                    <constraint firstItem="lYE-az-j2E" firstAttribute="top" secondItem="b2e-KN-DPK" secondAttribute="bottom" constant="15" id="rfe-gs-Oag"/>
+                                                    <constraint firstItem="5cu-QV-HWk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="OQ4-0i-3m2" secondAttribute="leading" constant="10" id="tyK-F5-jTD"/>
+                                                    <constraint firstItem="b2e-KN-DPK" firstAttribute="leading" secondItem="OQ4-0i-3m2" secondAttribute="leading" constant="35" id="uin-Ru-bva"/>
+                                                    <constraint firstItem="YtJ-HN-6vS" firstAttribute="leading" secondItem="OQ4-0i-3m2" secondAttribute="leading" constant="35" id="zPR-qp-iPx"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="OQ4-0i-3m2" firstAttribute="top" secondItem="90Q-2g-XPT" secondAttribute="top" id="DKs-2Y-YaB"/>
+                                            <constraint firstAttribute="bottom" secondItem="OQ4-0i-3m2" secondAttribute="bottom" id="ZA1-wd-ytT"/>
+                                            <constraint firstItem="OQ4-0i-3m2" firstAttribute="leading" secondItem="90Q-2g-XPT" secondAttribute="leading" id="dml-oy-zj2"/>
+                                            <constraint firstAttribute="trailing" secondItem="OQ4-0i-3m2" secondAttribute="trailing" id="oL5-Bg-Tl2"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="rL9-Pg-HgH"/>
+                                    <constraint firstItem="90Q-2g-XPT" firstAttribute="top" secondItem="zPH-hr-HCO" secondAttribute="top" id="BdB-9u-GR5"/>
+                                    <constraint firstItem="90Q-2g-XPT" firstAttribute="leading" secondItem="zPH-hr-HCO" secondAttribute="leading" id="dUM-up-dqF"/>
+                                    <constraint firstItem="90Q-2g-XPT" firstAttribute="trailing" secondItem="zPH-hr-HCO" secondAttribute="trailing" id="mPq-YM-86I"/>
+                                    <constraint firstItem="90Q-2g-XPT" firstAttribute="width" secondItem="2K9-Xy-Fs7" secondAttribute="width" id="vMn-Tp-NBE"/>
+                                    <constraint firstItem="90Q-2g-XPT" firstAttribute="bottom" secondItem="zPH-hr-HCO" secondAttribute="bottom" id="wDZ-Jb-45M"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="35"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
+                                <viewLayoutGuide key="contentLayoutGuide" id="zPH-hr-HCO"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="2K9-Xy-Fs7"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.33333333333333331" green="0.3529411764705882" blue="0.69803921568627447" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="xx2-tB-YMB" secondAttribute="bottom" constant="-40" id="Kht-QC-nc4"/>
+                            <constraint firstItem="ea3-bU-yRb" firstAttribute="leading" secondItem="dYM-AL-nYC" secondAttribute="leading" id="8ez-9i-zEC"/>
+                            <constraint firstItem="dYM-AL-nYC" firstAttribute="trailing" secondItem="ea3-bU-yRb" secondAttribute="trailing" id="ABQ-UR-Oy0"/>
+                            <constraint firstItem="ea3-bU-yRb" firstAttribute="height" secondItem="BA7-Fg-e04" secondAttribute="height" multiplier="2:3" id="EXS-L0-atw"/>
+                            <constraint firstItem="ea3-bU-yRb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="dYM-AL-nYC" secondAttribute="top" constant="140" id="J5D-fe-XO5"/>
                             <constraint firstItem="PDj-1j-Jki" firstAttribute="height" secondItem="BA7-Fg-e04" secondAttribute="height" multiplier="1:2.5" id="SGd-zZ-7cJ"/>
-                            <constraint firstItem="PDj-1j-Jki" firstAttribute="top" secondItem="BA7-Fg-e04" secondAttribute="top" id="SXF-18-qSj"/>
+                            <constraint firstItem="PDj-1j-Jki" firstAttribute="top" secondItem="dYM-AL-nYC" secondAttribute="top" id="SXF-18-qSj"/>
+                            <constraint firstAttribute="bottom" secondItem="ea3-bU-yRb" secondAttribute="bottom" id="V1L-34-fEM"/>
                             <constraint firstItem="PDj-1j-Jki" firstAttribute="leading" secondItem="dYM-AL-nYC" secondAttribute="leading" id="bz0-yk-4Z9"/>
-                            <constraint firstItem="xx2-tB-YMB" firstAttribute="leading" secondItem="dYM-AL-nYC" secondAttribute="leading" id="dL0-QF-Vhe"/>
-                            <constraint firstItem="dYM-AL-nYC" firstAttribute="trailing" secondItem="xx2-tB-YMB" secondAttribute="trailing" id="mbs-Zq-Od7"/>
                             <constraint firstItem="dYM-AL-nYC" firstAttribute="trailing" secondItem="PDj-1j-Jki" secondAttribute="trailing" id="wcf-Kv-ma7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dYM-AL-nYC"/>
@@ -47,48 +214,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2al-Sh-Ycl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-167" y="129"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="ZPt-JS-AkR">
-            <objects>
-                <viewController id="UCM-E2-Hw1" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QZt-jr-JCs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kVd-K6-6v1">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="324.66666666666669"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4gD-8d-M2T" customClass="DesignableView" customModule="Spring">
-                                <rect key="frame" x="0.0" y="452" width="375" height="400"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="N20-yq-yTr"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="35"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="0.33333333329999998" green="0.35294117650000001" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="4gD-8d-M2T" secondAttribute="bottom" constant="-40" id="CDg-pk-JGz"/>
-                            <constraint firstItem="kVd-K6-6v1" firstAttribute="leading" secondItem="rtC-9y-LJ2" secondAttribute="leading" id="PCA-di-2Fx"/>
-                            <constraint firstItem="rtC-9y-LJ2" firstAttribute="trailing" secondItem="4gD-8d-M2T" secondAttribute="trailing" id="PNK-hT-gWB"/>
-                            <constraint firstItem="kVd-K6-6v1" firstAttribute="height" secondItem="QZt-jr-JCs" secondAttribute="height" multiplier="1:2.5" id="bfT-F9-fdo"/>
-                            <constraint firstItem="rtC-9y-LJ2" firstAttribute="trailing" secondItem="kVd-K6-6v1" secondAttribute="trailing" id="h2M-xj-itO"/>
-                            <constraint firstItem="4gD-8d-M2T" firstAttribute="leading" secondItem="rtC-9y-LJ2" secondAttribute="leading" id="h4r-Ox-ofW"/>
-                            <constraint firstItem="kVd-K6-6v1" firstAttribute="top" secondItem="QZt-jr-JCs" secondAttribute="top" id="jcf-Re-VEe"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="rtC-9y-LJ2"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pmN-ZR-Bhs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="545" y="129"/>
+            <point key="canvasLocation" x="-168.75" y="128.87323943661971"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="2ds-9D-ftX">
@@ -98,28 +224,115 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tzu-ql-4FG">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="324.66666666666669"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor" translatesAutoresizingMaskIntoConstraints="NO" id="Tzu-ql-4FG">
+                                <rect key="frame" x="0.0" y="44" width="375" height="324.66666666666669"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BaA-Ch-bYU" customClass="DesignableView" customModule="Spring">
-                                <rect key="frame" x="0.0" y="452" width="375" height="400"/>
+                                <rect key="frame" x="0.0" y="390" width="375" height="422"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ورود به حساب کاربری" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdS-fw-DpA">
+                                        <rect key="frame" x="77" y="50" width="221" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="jrH-tO-BTl"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c8s-nn-Lch" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                        <rect key="frame" x="30" y="125" width="315" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="4o3-e1-oSi"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="errorMessage" value="ایمیل وارد شده معتبر نیست"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="پست الکترونیک"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="پست الکترونیک"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3vY-SR-gX6" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                        <rect key="frame" x="35" y="190" width="305" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Zld-uQ-ROE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="errorMessage" value="ایمیل وارد شده معتبر نیست"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="رمز عبود"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="رمز عبور"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvr-Fl-QYe">
+                                        <rect key="frame" x="35" y="250" width="129" height="27"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                        <state key="normal" title="رمز عبور را فراموش کردید؟">
+                                            <color key="titleColor" name="dusk"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBn-au-RcZ" customClass="DesignableButton" customModule="Spring">
+                                        <rect key="frame" x="62.666666666666657" y="285" width="249.99999999999997" height="50"/>
+                                        <color key="backgroundColor" name="brandOrange"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="8kA-EZ-ks1"/>
+                                            <constraint firstAttribute="height" constant="50" id="MDK-gj-YUk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <state key="normal" title="ورود">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9U-YL-AgH">
+                                        <rect key="frame" x="123" y="345" width="129" height="27"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                        <state key="normal" title="رمز عبور را فراموش کردید؟">
+                                            <color key="titleColor" name="dusk"/>
+                                        </state>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="cvA-5b-em6"/>
+                                    <constraint firstItem="MdS-fw-DpA" firstAttribute="centerX" secondItem="BaA-Ch-bYU" secondAttribute="centerX" id="3kX-7X-Ju5"/>
+                                    <constraint firstItem="rvr-Fl-QYe" firstAttribute="leading" secondItem="3vY-SR-gX6" secondAttribute="leading" id="5iJ-GE-9EK"/>
+                                    <constraint firstAttribute="trailing" secondItem="3vY-SR-gX6" secondAttribute="trailing" constant="35" id="8DN-Sw-Iwv"/>
+                                    <constraint firstItem="c8s-nn-Lch" firstAttribute="top" secondItem="MdS-fw-DpA" secondAttribute="bottom" constant="50" id="8Vt-iH-6Nx"/>
+                                    <constraint firstItem="rvr-Fl-QYe" firstAttribute="top" secondItem="3vY-SR-gX6" secondAttribute="bottom" constant="10" id="8rE-Mo-HsV"/>
+                                    <constraint firstItem="YBn-au-RcZ" firstAttribute="top" secondItem="3vY-SR-gX6" secondAttribute="bottom" constant="45" id="DRH-RT-mEF"/>
+                                    <constraint firstItem="m9U-YL-AgH" firstAttribute="top" secondItem="YBn-au-RcZ" secondAttribute="bottom" constant="10" id="Lic-sV-XzL"/>
+                                    <constraint firstAttribute="trailing" secondItem="c8s-nn-Lch" secondAttribute="trailing" constant="30" id="M6O-Kg-h9f"/>
+                                    <constraint firstItem="MdS-fw-DpA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BaA-Ch-bYU" secondAttribute="leading" constant="10" id="NLO-nE-eSI"/>
+                                    <constraint firstItem="m9U-YL-AgH" firstAttribute="centerX" secondItem="YBn-au-RcZ" secondAttribute="centerX" id="RFY-M7-Go1"/>
+                                    <constraint firstItem="YBn-au-RcZ" firstAttribute="centerX" secondItem="BaA-Ch-bYU" secondAttribute="centerX" id="TeL-Gc-2Uu"/>
+                                    <constraint firstItem="3vY-SR-gX6" firstAttribute="top" secondItem="c8s-nn-Lch" secondAttribute="bottom" constant="15" id="VDc-Ox-UDB"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MdS-fw-DpA" secondAttribute="trailing" constant="10" id="Vxa-JN-e6C"/>
+                                    <constraint firstItem="MdS-fw-DpA" firstAttribute="top" secondItem="BaA-Ch-bYU" secondAttribute="top" constant="50" id="dWQ-OM-yxU"/>
+                                    <constraint firstItem="3vY-SR-gX6" firstAttribute="leading" secondItem="BaA-Ch-bYU" secondAttribute="leading" constant="35" id="ge0-Bj-dF1"/>
+                                    <constraint firstItem="c8s-nn-Lch" firstAttribute="leading" secondItem="BaA-Ch-bYU" secondAttribute="leading" constant="30" id="lLb-HW-K6j"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rvr-Fl-QYe" secondAttribute="trailing" constant="35" id="qp6-Hf-rlW"/>
+                                    <constraint firstAttribute="bottom" secondItem="m9U-YL-AgH" secondAttribute="bottom" constant="50" id="rXt-Wu-dSZ"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="35"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.33333333329999998" green="0.35294117650000001" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Tzu-ql-4FG" firstAttribute="leading" secondItem="bUk-Fh-dY3" secondAttribute="leading" id="9nJ-Vp-koz"/>
                             <constraint firstItem="bUk-Fh-dY3" firstAttribute="trailing" secondItem="Tzu-ql-4FG" secondAttribute="trailing" id="XLg-Ea-kPd"/>
-                            <constraint firstAttribute="bottom" secondItem="BaA-Ch-bYU" secondAttribute="bottom" constant="-40" id="ZZe-Pa-29b"/>
-                            <constraint firstItem="Tzu-ql-4FG" firstAttribute="top" secondItem="kbE-di-Meb" secondAttribute="top" id="c7Z-S4-Vt4"/>
+                            <constraint firstItem="BaA-Ch-bYU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bUk-Fh-dY3" secondAttribute="top" constant="140" id="Y2J-kh-mEh"/>
+                            <constraint firstAttribute="bottom" secondItem="BaA-Ch-bYU" secondAttribute="bottom" id="ZZe-Pa-29b"/>
+                            <constraint firstItem="Tzu-ql-4FG" firstAttribute="top" secondItem="bUk-Fh-dY3" secondAttribute="top" id="c7Z-S4-Vt4"/>
                             <constraint firstItem="bUk-Fh-dY3" firstAttribute="trailing" secondItem="BaA-Ch-bYU" secondAttribute="trailing" id="q8m-KA-Bn1"/>
                             <constraint firstItem="Tzu-ql-4FG" firstAttribute="height" secondItem="kbE-di-Meb" secondAttribute="height" multiplier="1:2.5" id="ufo-f6-sSV"/>
                             <constraint firstItem="BaA-Ch-bYU" firstAttribute="leading" secondItem="bUk-Fh-dY3" secondAttribute="leading" id="yZX-lb-T0N"/>
@@ -129,7 +342,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dox-sA-E3X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-860" y="129"/>
+            <point key="canvasLocation" x="-860" y="128.57142857142858"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="doctor" width="148" height="201"/>
+        <namedColor name="brandOrange">
+            <color red="0.95686274509803915" green="0.62352941176470589" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="dusk">
+            <color red="0.24699999392032623" green="0.23899999260902405" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

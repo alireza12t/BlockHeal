@@ -18,7 +18,7 @@ target 'BlockHeal' do
 	pod 'SwiftCBOR'
 	pod 'BRYXBanner'
   	pod 'ReachabilitySwift'
-
+	pod 'SkyFloatingLabelTextField', '~> 3.0'
 
 end
 

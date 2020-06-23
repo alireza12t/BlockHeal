@@ -45,6 +45,8 @@
 		F5C8641D2494FDA400BAE28D /* doctor.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C864192494FDA400BAE28D /* doctor.pb.swift */; };
 		F5C8641E2494FDA400BAE28D /* patient.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C8641A2494FDA400BAE28D /* patient.pb.swift */; };
 		F5C864212494FDDC00BAE28D /* prescript.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C864202494FDDC00BAE28D /* prescript.pb.swift */; };
+		F5CD4928249F161200DB155E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD4927249F161200DB155E /* LoginViewController.swift */; };
+		F5CD492A249F183100DB155E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD4929249F183100DB155E /* RegisterViewController.swift */; };
 		F5E30A472473A03800C347D4 /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E30A422473A03700C347D4 /* APIConfiguration.swift */; };
 		F5E30A482473A03800C347D4 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E30A432473A03700C347D4 /* NetworkConstants.swift */; };
 		F5E30A492473A03800C347D4 /* NetworkInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E30A442473A03800C347D4 /* NetworkInterceptor.swift */; };
@@ -142,6 +144,8 @@
 		F5C864192494FDA400BAE28D /* doctor.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = doctor.pb.swift; sourceTree = "<group>"; };
 		F5C8641A2494FDA400BAE28D /* patient.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = patient.pb.swift; sourceTree = "<group>"; };
 		F5C864202494FDDC00BAE28D /* prescript.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = prescript.pb.swift; sourceTree = "<group>"; };
+		F5CD4927249F161200DB155E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F5CD4929249F183100DB155E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		F5E30A422473A03700C347D4 /* APIConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConfiguration.swift; sourceTree = "<group>"; };
 		F5E30A432473A03700C347D4 /* NetworkConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		F5E30A442473A03800C347D4 /* NetworkInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkInterceptor.swift; sourceTree = "<group>"; };
@@ -277,18 +281,13 @@
 			path = Patient;
 			sourceTree = "<group>";
 		};
-		F57ADA812499DF6A000C6633 /* Register */ = {
+		F57ADA822499DF71000C6633 /* Login & Register */ = {
 			isa = PBXGroup;
 			children = (
+				F5CD4927249F161200DB155E /* LoginViewController.swift */,
+				F5CD4929249F183100DB155E /* RegisterViewController.swift */,
 			);
-			path = Register;
-			sourceTree = "<group>";
-		};
-		F57ADA822499DF71000C6633 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Login;
+			path = "Login & Register";
 			sourceTree = "<group>";
 		};
 		F57ADA832499DF77000C6633 /* Doctor */ = {
@@ -393,8 +392,7 @@
 				F541E55A2473249E00A0D6FE /* ViewController.swift */,
 				F51ACA77249C84B700A6A5A5 /* SplashViewController.swift */,
 				F51ACA75249C84AF00A6A5A5 /* MainViewController.swift */,
-				F57ADA822499DF71000C6633 /* Login */,
-				F57ADA812499DF6A000C6633 /* Register */,
+				F57ADA822499DF71000C6633 /* Login & Register */,
 				F57ADA832499DF77000C6633 /* Doctor */,
 				F57ADA802499DF63000C6633 /* Patient */,
 			);
@@ -588,6 +586,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F51ACA81249CAE1D00A6A5A5 /* TableHeaderView.swift in Sources */,
+				F5CD492A249F183100DB155E /* RegisterViewController.swift in Sources */,
 				F5F8D661249B63C90048AAA5 /* PatientViewController.swift in Sources */,
 				F52CCF23248F13A400DE07DE /* TransactionHelper.swift in Sources */,
 				F5C8641D2494FDA400BAE28D /* doctor.pb.swift in Sources */,
@@ -615,6 +614,7 @@
 				F5F8D669249B64230048AAA5 /* SendPrescriptionViewController.swift in Sources */,
 				F5F8D660249B5ECC0048AAA5 /* PatientTableViewCell.swift in Sources */,
 				F5E30A7B2473A0A900C347D4 /* Formatter.swift in Sources */,
+				F5CD4928249F161200DB155E /* LoginViewController.swift in Sources */,
 				F5E30A492473A03800C347D4 /* NetworkInterceptor.swift in Sources */,
 				F5E30A4A2473A03800C347D4 /* URLs.swift in Sources */,
 				F5E30A6D2473A0A900C347D4 /* UIImage.swift in Sources */,
