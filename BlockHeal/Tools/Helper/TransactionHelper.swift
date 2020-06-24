@@ -56,14 +56,12 @@ class TransactionHelper {
         var recievePrescript = SendPrescriptAction()
         recievePrescript.patPublicKey = publicKey.hex()
         recievePrescript.docPublicKey = recieverPublicKeyHex
-        recievePrescript.hash = hash(item: index + publicKey.hex() + recieverPublicKeyHex + precscript)
+        recievePrescript.hash = hash(item: index + recieverPublicKeyHex + precscript)
         
-        let encodedPrescript = try? CBOR.encodeAny(recievePrescript)
-        
-        if let payload = encodedPrescript {
-            return createTxn(encodedPayload: payload, signer: signer)
-        }
-        return nil
+        let encodedPrescript = CBOR.encode(recievePrescript)
+
+        return createTxn(encodedPayload: encodedPrescript, signer: signer)
+
     }
     
     class func createAccount(role: Role) -> Data? {
@@ -115,7 +113,8 @@ class TransactionHelper {
                 Log.e("Unable to serialize data")
             }
             transaction.payload = Data(bytes: encodedPayload, count: encodedPayload.encode().count)
-            return try? transaction.jsonString().data(using: .utf8)
+            
+            return JSON(stringLiteral: transaction.textFormatString()).rawString()?.data(using: .utf8)
             
             //MARK: Encode the Transaction(s)
 //            do {
@@ -191,4 +190,5 @@ class TransactionHelper {
     }
     
 }
+
 
