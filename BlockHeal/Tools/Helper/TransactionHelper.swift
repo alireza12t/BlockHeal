@@ -71,7 +71,7 @@ class TransactionHelper {
         var createAccount = CreateAccountAction()
         createAccount.label = role.rawValue
         
-        let encodedCreateAccount = createAccount.encode()
+        let encodedCreateAccount = CBOR.encode(createAccount)
         
         return createTxn(encodedPayload: encodedCreateAccount, signer: signer)
         
@@ -90,8 +90,8 @@ class TransactionHelper {
             
             transactionHeader.familyName = "BlockHeal"
             transactionHeader.familyVersion = "1.0"
-            transactionHeader.inputs = ["'59b423'"]
-            transactionHeader.outputs = ["'59b423'"]
+            transactionHeader.inputs = ["59b423"]
+            transactionHeader.outputs = ["59b423"]
             
             transactionHeader.payloadSha512 = TransactionHelper.hash(data: Data(bytes: encodedPayload, count: encodedPayload.encode().count))
             transactionHeader.nonce = UUID().uuidString
@@ -114,13 +114,17 @@ class TransactionHelper {
             }
             transaction.payload = Data(bytes: encodedPayload, count: encodedPayload.encode().count)
             
-            return JSON(stringLiteral: transaction.textFormatString()).rawString()?.data(using: .utf8)
             
-            //MARK: Encode the Transaction(s)
+
+            
+//            return JSON(stringLiteral: ).rawString()?.data(using: .utf8)
+            return "txn=\(transaction.textFormatString().data(using: .utf8)?.base64EncodedString())".data(using: .utf8)!
+            
+//            MARK: Encode the Transaction(s)
 //            do {
 //                let txn_bytes = try transaction.serializedData()
 //                return txn_bytes
-                
+//
 //                //MARK: Create the BatchHeader
 //
 //                var batchHeader = BatchHeader()
@@ -162,7 +166,7 @@ class TransactionHelper {
 //            } catch {
 //                Log.e("Unable to serialize data")
 //            }
-//
+
         } catch {
             Log.e("failed to Create transactionHeader \(error)")
         }

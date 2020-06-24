@@ -5,7 +5,7 @@ import Alamofire
 
 //let BASEURL = Bundle.main.infoDictionary?["ServerName"] as! String
 
-let BaseURL = "https://192.168.1.5:3001"
+let BaseURL = "http://192.168.0.111:3001"
 
 enum URLs: APIConfiguration {
     

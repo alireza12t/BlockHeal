@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 import Alamofire
-
+import SwiftCBOR
 
 class ViewController: UIViewController {
     
@@ -26,11 +26,20 @@ class ViewController: UIViewController {
         titleLabel.text = ""
         
         
-        let sendPrescriptTransactiion = TransactionHelper.sendPrescript(recieverPublicKeyHex: "jdjhjdhjhdhjdjhdhj", precscript: "{ 'X' : 12, 'Y' : 20 }", index: "1")
+//        let sendPrescriptTransactiion = TransactionHelper.sendPrescript(recieverPublicKeyHex: "jdjhjdhjhdhjdjhdhj", precscript: "{ 'X' : 12, 'Y' : 20 }", index: "1")
         let createAccountTransaction = TransactionHelper.createAccount(role: .Doctor)
-        let createAccountTransaction2 = TransactionHelper.createAccount(role: .Patient)
+//        let createAccountTransaction2 = TransactionHelper.createAccount(role: .Patient)
+        
+        
+//        let x: CBOR = [
+//            "label" : "Doctor"
+//        ]
+//
+        
+        
+//        let createAccountTransaction = TransactionHelper.createTxn(encodedPayload: x.encode(), signer: TransactionHelper.getSigner())
 
-        var request: URLRequest = URLRequest(url: URL(string: "http://192.168.1.5:3001/blockchain/transactions")!)
+        var request: URLRequest = URLRequest(url: URL(string: "http://192.168.0.111:3001")!)
         request.httpBody = createAccountTransaction
         request.httpMethod = HTTPMethod.post.rawValue
         
@@ -41,41 +50,41 @@ class ViewController: UIViewController {
                 self.titleLabel.text = "Success"
                 self.label.text = "\(value as? [String : Any])"
             case .failure(let error):
-                self.titleLabel.text = "Success"
+                self.titleLabel.text = "Fail"
                 self.label.text = "\(error)"
             }
             
         }
 
-        if let createAccountData = createAccountTransaction {
-            APIDispposableTransaction?.dispose()
-            APIDispposableTransaction = nil
-            APIDispposableTransaction = APIHelper.createAccountTransactiion(body: createAccountData)
-                .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-                .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-                .subscribe(onNext: { (response) in
-                    Log.i("createAccountTransactiion => Doctor => onNext => \(response)")
-                    
-                }, onError: { (error) in
-                    Log.e("createAccountTransactiion => Doctor => onError => \(error) => \((error as NSError).domain)")
-                    
-                })
-        }
-        
-        if let createAccountData = createAccountTransaction2 {
-            APIDispposableTransaction?.dispose()
-            APIDispposableTransaction = nil
-            APIDispposableTransaction = APIHelper.createAccountTransactiion(body: createAccountData)
-                .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-                .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-                .subscribe(onNext: { (response) in
-                    Log.i("createAccountTransactiion => Patiient => onNext => \(response)")
-                    
-                }, onError: { (error) in
-                    Log.e("createAccountTransactiion =>  Patiient => onError => \(error) => \((error as NSError).domain)")
-                    
-                })
-        }
+//        if let createAccountData = createAccountTransaction {
+//            APIDispposableTransaction?.dispose()
+//            APIDispposableTransaction = nil
+//            APIDispposableTransaction = APIHelper.createAccountTransactiion(body: createAccountData)
+//                .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+//                .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+//                .subscribe(onNext: { (response) in
+//                    Log.i("createAccountTransactiion => Doctor => onNext => \(response)")
+//
+//                }, onError: { (error) in
+//                    Log.e("createAccountTransactiion => Doctor => onError => \(error) => \((error as NSError).domain)")
+//
+//                })
+//        }
+//
+//        if let createAccountData = createAccountTransaction2 {
+//            APIDispposableTransaction?.dispose()
+//            APIDispposableTransaction = nil
+//            APIDispposableTransaction = APIHelper.createAccountTransactiion(body: createAccountData)
+//                .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+//                .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+//                .subscribe(onNext: { (response) in
+//                    Log.i("createAccountTransactiion => Patiient => onNext => \(response)")
+//
+//                }, onError: { (error) in
+//                    Log.e("createAccountTransactiion =>  Patiient => onError => \(error) => \((error as NSError).domain)")
+//
+//                })
+//        }
 
     }
 }
