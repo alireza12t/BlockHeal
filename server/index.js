@@ -85,7 +85,7 @@ var requestRoutes = require('./routes/request');
 var prescriptRoutes = require('./routes/prescript');
 
 app.use('/auth', authRoutes);
-// app.use("/blockchain", blockchainRoutes);
+app.use("/blockchain", blockchainRoutes);
 app.use('/user', userRoutes);
 app.use('/patient', patientRoutes);
 app.use('/doctor', doctorRoutes);
