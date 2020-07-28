@@ -326,6 +326,7 @@ class BC98State {
           "getAccount in blockchain is not responding!:" + " " + err
         );
       });
+
   }
 }
 
