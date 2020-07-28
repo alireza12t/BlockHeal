@@ -4,12 +4,12 @@ import "prescript.proto";
 
 package bc;
 
-message DrugStore_Account {
-    string publickey = 1;
+message drugStoreAccount {
+    string publicKey = 1;
     repeated string label = 2;
-    repeated Prescript recieved_prescripts = 16;
+    repeated Prescript recievedPrescripts = 16;
 }
 
 message storeAccount_Container {
-    repeated DrugStore_Account entries = 1;
+    repeated drugStoreAccount entries = 1;
 }
