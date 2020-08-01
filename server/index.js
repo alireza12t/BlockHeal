@@ -1,16 +1,16 @@
-const express = require('express');
-const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
-const bodyParser = require('body-parser');
-const cookiePareser = require('cookie-parser');
-const mongoose = require('mongoose');
-const _ = require('lodash');
-require('dotenv').config();
-const useragent = require('express-useragent');
-const protos = require('./api/protos');
-const logger = require('./api/logger');
+const express = require("express");
+const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
+const bodyParser = require("body-parser");
+const cookiePareser = require("cookie-parser");
+const mongoose = require("mongoose");
+const _ = require("lodash");
+require("dotenv").config();
+const useragent = require("express-useragent");
+const protos = require("./api/protos");
+const logger = require("./api/logger");
 const app = express();
-const cors = require('cors');
+const cors = require("cors");
 
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGO_DATABASE, {
@@ -19,12 +19,12 @@ mongoose.connect(process.env.MONGO_DATABASE, {
 });
 
 const mongooseDB = mongoose.connection;
-mongoose.set('useCreateIndex', true);
-mongoose.set('useFindAndModify', false);
+mongoose.set("useCreateIndex", true);
+mongoose.set("useFindAndModify", false);
 
 const waitParser = (req, res, next) => {
   const DEFAULT_WAIT = Math.floor(500000 / 1000);
-  const parsed = req.query.wait === '' ? DEFAULT_WAIT : Number(req.query.wait);
+  const parsed = req.query.wait === "" ? DEFAULT_WAIT : Number(req.query.wait);
   req.query.wait = _.isNaN(parsed) ? null : parsed;
   next();
 };
@@ -32,7 +32,7 @@ const waitParser = (req, res, next) => {
 // const path = require('path')
 // app.use(express.static(path.join(__dirname, 'static')))
 
-var morgan = require('morgan');
+var morgan = require("morgan");
 app.use(
   morgan(
     ':remote-addr ":method :url HTTP/:http-version" :status :res[content-length] :response-time ":referrer" ":user-agent" ',
@@ -46,7 +46,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookiePareser());
 app.use(waitParser);
 
-app.use(cors({ credentials: true, origin: ['http://localhost'] }));
+app.use(cors({ credentials: true, origin: ["http://localhost"] }));
 app.use(useragent.express());
 var sess = {
   secret: process.env.SESSION_SECRET,
@@ -55,42 +55,41 @@ var sess = {
   saveUninitialized: true,
   rolling: true,
   SameSite: true,
-  name: 'sessionId',
+  name: "sessionId",
   cookie: {
     //secure: true,
     httpOnly: true,
     //domain:,
-    path: '/',
+    path: "/",
     maxAge: 6000000,
   },
   store: new MongoStore({ mongooseConnection: mongooseDB }),
 };
-if (app.get('env') === 'production') {
-  app.set('trust proxy', 1); // trust first proxy
+if (app.get("env") === "production") {
+  app.set("trust proxy", 1); // trust first proxy
   sess.cookie.secure = true; // serve secure cookies
 }
 app.use(session(sess));
-var server = require('http').createServer(app);
+var server = require("http").createServer(app);
 
-const rethink = require('./db/rethinkdb');
+const rethink = require("./db/rethinkdb");
 
-const blockchain = require("./api/transactions");
+var authRoutes = require("./routes/auth");
 
-var authRoutes = require('./routes/auth');
-var blockchainRoutes = require("./routes/blockchain");
-var userRoutes = require('./routes/user');
-var patientRoutes = require('./routes/patient');
-var doctorRoutes = require('./routes/doctor');
-var requestRoutes = require('./routes/request');
-var prescriptRoutes = require('./routes/prescript');
+var blockchainRoute = require("./routes/blockchain");
+var userRoutes = require("./routes/user");
+var patientRoutes = require("./routes/patient");
+var doctorRoutes = require("./routes/doctor");
+var requestRoutes = require("./routes/request");
+var prescriptRoutes = require("./routes/prescript");
 
-app.use('/auth', authRoutes);
-app.use("/blockchain", blockchainRoutes);
-app.use('/user', userRoutes);
-app.use('/patient', patientRoutes);
-app.use('/doctor', doctorRoutes);
-app.use('/request', requestRoutes);
-app.use('/prescript', prescriptRoutes);
+app.use("/auth", authRoutes);
+app.use("/blockchain", blockchainRoute);
+app.use("/user", userRoutes);
+app.use("/patient", patientRoutes);
+app.use("/doctor", doctorRoutes);
+app.use("/request", requestRoutes);
+app.use("/prescript", prescriptRoutes);
 
 /// ///////////////////////////////////////////////////////////////////////////////////////////////
 /// ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -99,20 +98,20 @@ app.use('/prescript', prescriptRoutes);
 /// ///////////////////////////////////////////////////////////////////////////////////////////////
 
 app.use(function (err, req, res, next) {
-  logger.warn(err.statusCode + ' - ' + err.messageEnglish);
+  logger.warn(err.statusCode + " - " + err.messageEnglish);
   if (!err.statusCode) {
     logger.error(err.stack);
     res.status(500).json({
-      actionName: 'Intrnal Error',
+      actionName: "Intrnal Error",
       metaData: {
-        title: 'خطا در سرور',
-        message: 'لطفا لحظاتی بعد دوباره اقدام کنید.',
-        messageEnglish: 'something bad happened!',
+        title: "خطا در سرور",
+        message: "لطفا لحظاتی بعد دوباره اقدام کنید.",
+        messageEnglish: "something bad happened!",
       },
     });
   } else {
     res.status(err.statusCode).send({
-      actionName: 'Error',
+      actionName: "Error",
       metaData: {
         title: err.title,
         clientErrorCode: err.clientCode,
@@ -128,13 +127,13 @@ app.use(function (err, req, res, next) {
 /// ///////////////////////// START ///////////////////////////////////////////////////////////////
 /// ///////////////////////////////////////////////////////////////////////////////////////////////
 /// ///////////////////////////////////////////////////////////////////////////////////////////////
-Promise.all([blockchain.connect(), protos.compile(), rethink.connect()])
-  .catch((err) => {
-    logger.error(`Starting services has some errors: ${err}`);
-  })
-  .then(() => {
-    logger.info("Server is ready ...");
-  });
+// Promise.all([blockchain.connect(), protos.compile(), rethink.connect()])
+//   .catch((err) => {
+//     logger.error(`Starting services has some errors: ${err}`);
+//   })
+//   .then(() => {
+//     logger.info("Server is ready ...");
+//   });
 
 /// ///////////////////////////////////////////////////////////////////////////////////////////////
 /// ///////////////////////////////////////////////////////////////////////////////////////////////

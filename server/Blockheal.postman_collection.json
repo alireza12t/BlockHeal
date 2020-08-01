@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a0b19097-62a0-4afd-a0fc-b22b4bc4bd59",
+		"_postman_id": "0b0ac01e-24c5-4500-b4c6-566306ed27dc",
 		"name": "Blockheal",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -493,6 +493,37 @@
 							"port": "3001",
 							"path": [
 								"prescript"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "blockchain",
+			"item": [
+				{
+					"name": "store transaction",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMjUxNTM3NThmNjA0NDk5OGI0ZDJkNSIsInVzZXJuYW1lIjoiZG9jdG9yIiwiaWF0IjoxNTk2MjY1NzgzfQ.8JrrK27VEVBu2X4AbXnpndi9EP8-0lvST_pGOZR3heo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/blockchain",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"blockchain"
 							]
 						}
 					},
